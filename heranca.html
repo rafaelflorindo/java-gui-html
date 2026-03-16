@@ -11,33 +11,32 @@
 
 <div class="container">
 
-<aside class="menu">
-
-<h2>Java Guia</h2>
-
-<ul>
-<li><a href="index.html">Introdução</a></li>
-<li><a href="variaveis.html">Variáveis</a></li>
-<li><a href="condicionais.html">Condicionais</a></li>
-<li><a href="repeticao.html">Repetição</a></li>
-
-<li><a href="classes.html">Classes</a></li>
-<li><a href="encapsulamento.html">Encapsulamento</a></li>
-<li><a href="heranca.html">Herança</a></li>
-<li><a href="polimorfismo.html">Polimorfismo</a></li>
-</ul>
-
-</aside>
+<div id="menu"></div>
 
 <main class="conteudo">
 
 <h1>Herança</h1>
 
 <p>
-Herança permite que uma classe herde atributos e métodos de outra classe.
+Herança é um mecanismo da Programação Orientada a Objetos que permite
+que uma classe herde atributos e métodos de outra classe.
 </p>
 
-<h2>Exemplo</h2>
+<p>
+A classe que fornece as características é chamada de
+<strong>classe pai</strong> (ou superclasse), enquanto a classe que
+herda essas características é chamada de <strong>classe filha</strong>
+(ou subclasse).
+</p>
+
+<p>
+Em Java utilizamos a palavra-chave <strong>extends</strong> para indicar
+que uma classe está herdando de outra.
+</p>
+
+<hr>
+
+<h2>Exemplo simples</h2>
 
 <pre>
 <code>
@@ -55,9 +54,109 @@ public class Aluno extends Pessoa {
 </code>
 </pre>
 
+<h2>Explicação</h2>
+
+<ul>
+<li>A classe <strong>Pessoa</strong> possui o atributo <strong>nome</strong></li>
+<li>A classe <strong>Aluno</strong> herda esse atributo</li>
+<li>Além disso, <strong>Aluno</strong> possui seu próprio atributo chamado <strong>matricula</strong></li>
+</ul>
+
+<p>
+Isso significa que um objeto da classe <strong>Aluno</strong> terá acesso
+tanto ao atributo <strong>nome</strong> quanto ao atributo
+<strong>matricula</strong>.
+</p>
+
+<hr>
+
+<h2>Exemplo completo</h2>
+
+<pre>
+<code>
+class Pessoa {
+
+    String nome;
+
+    public void apresentar(){
+        System.out.println("Meu nome é " + nome);
+    }
+
+}
+
+class Aluno extends Pessoa {
+
+    int matricula;
+
+}
+
+public class Teste {
+
+    public static void main(String[] args){
+
+        Aluno aluno = new Aluno();
+
+        aluno.nome = "Carlos";
+        aluno.matricula = 123;
+
+        aluno.apresentar();
+
+    }
+
+}
+</code>
+</pre>
+
+<h2>Explicação do exemplo</h2>
+
+<p>
+Neste exemplo, a classe <strong>Aluno</strong> herda o atributo
+<strong>nome</strong> e o método <strong>apresentar()</strong> da classe
+<strong>Pessoa</strong>.
+</p>
+
+<p>
+Assim, mesmo que esses elementos não estejam declarados diretamente na
+classe <strong>Aluno</strong>, eles podem ser utilizados normalmente.
+</p>
+
+<hr>
+
+<h2>Vantagens da Herança</h2>
+
+<ul>
+<li>Reutilização de código</li>
+<li>Organização das classes</li>
+<li>Facilidade de manutenção</li>
+<li>Possibilita o uso de polimorfismo</li>
+</ul>
+
+<hr>
+
+<h2>Atividade</h2>
+
+<p>
+Crie uma classe chamada <strong>Funcionario</strong> contendo:
+</p>
+
+<ul>
+<li>nome</li>
+<li>salario</li>
+</ul>
+
+<p>
+Depois crie uma classe chamada <strong>Gerente</strong> que herda de
+<strong>Funcionario</strong> e adicione um atributo chamado
+<strong>departamento</strong>.
+</p>
+
+<p>
+Crie um objeto da classe Gerente e exiba suas informações.
+</p>
+
 </main>
 
 </div>
-
+<script src="js/menu.js"></script>
 </body>
 </html>

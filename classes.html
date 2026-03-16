@@ -11,34 +11,32 @@
 
 <div class="container">
 
-<aside class="menu">
-
-<h2>Java Guia</h2>
-
-<ul>
-<li><a href="index.html">Introdução</a></li>
-<li><a href="variaveis.html">Variáveis</a></li>
-<li><a href="condicionais.html">Condicionais</a></li>
-<li><a href="repeticao.html">Repetição</a></li>
-
-<li><a href="classes.html">Classes</a></li>
-<li><a href="encapsulamento.html">Encapsulamento</a></li>
-<li><a href="heranca.html">Herança</a></li>
-<li><a href="polimorfismo.html">Polimorfismo</a></li>
-</ul>
-
-</aside>
+<div id="menu"></div>
 
 <main class="conteudo">
 
 <h1>Classes em Java</h1>
 
 <p>
-Uma classe é um modelo utilizado para criar objetos.
-Ela define atributos e métodos que os objetos terão.
+Uma classe é um modelo ou estrutura utilizada para criar objetos.
+Ela define quais atributos (características) e métodos (ações)
+os objetos terão.
 </p>
 
-<h2>Exemplo de Classe</h2>
+<p>
+Na Programação Orientada a Objetos, uma classe funciona como um
+<strong>molde</strong> para criar vários objetos semelhantes.
+</p>
+
+<hr>
+
+<h2>Atributos</h2>
+
+<p>
+Os atributos representam as características de um objeto.
+</p>
+
+<p><strong>Exemplo:</strong></p>
 
 <pre>
 <code>
@@ -51,9 +49,114 @@ public class Pessoa {
 </code>
 </pre>
 
+<p>
+Neste exemplo, a classe <strong>Pessoa</strong> possui dois atributos:
+</p>
+
+<ul>
+<li><strong>nome</strong></li>
+<li><strong>idade</strong></li>
+</ul>
+
+<hr>
+
+<h2>Métodos</h2>
+
+<p>
+Os métodos representam as ações que um objeto pode realizar.
+</p>
+
+<p><strong>Exemplo:</strong></p>
+
+<pre>
+<code>
+public class Pessoa {
+
+    String nome;
+    int idade;
+
+    public void apresentar(){
+        System.out.println("Meu nome é " + nome);
+    }
+
+}
+</code>
+</pre>
+
+<p>
+O método <strong>apresentar()</strong> exibe uma mensagem no console.
+</p>
+
+<hr>
+
+<h2>Criando objetos</h2>
+
+<p>
+Um objeto é uma instância de uma classe.
+Para criar um objeto utilizamos a palavra-chave <strong>new</strong>.
+</p>
+
+<pre>
+<code>
+public class Teste {
+
+    public static void main(String[] args){
+
+        Pessoa pessoa = new Pessoa();
+
+        pessoa.nome = "Carlos";
+        pessoa.idade = 25;
+
+        pessoa.apresentar();
+
+    }
+
+}
+</code>
+</pre>
+
+<h2>Explicação do exemplo</h2>
+
+<ul>
+<li><strong>Pessoa pessoa = new Pessoa()</strong> → cria um objeto da classe Pessoa</li>
+<li><strong>pessoa.nome</strong> → define o nome</li>
+<li><strong>pessoa.idade</strong> → define a idade</li>
+<li><strong>pessoa.apresentar()</strong> → executa o método da classe</li>
+</ul>
+
+<hr>
+
+<h2>Resumo</h2>
+
+<ul>
+<li>Classe → modelo para criar objetos</li>
+<li>Atributos → características do objeto</li>
+<li>Métodos → ações que o objeto pode executar</li>
+<li>Objeto → instância de uma classe</li>
+</ul>
+
+<hr>
+
+<h2>Atividade</h2>
+
+<p>
+Crie uma classe chamada <strong>Produto</strong> contendo os seguintes atributos:
+</p>
+
+<ul>
+<li>nome</li>
+<li>preco</li>
+<li>quantidade</li>
+</ul>
+
+<p>
+Depois crie um objeto da classe Produto e exiba os valores
+utilizando <strong>System.out.println()</strong>.
+</p>
+
 </main>
 
 </div>
-
+<script src="js/menu.js"></script>
 </body>
 </html>

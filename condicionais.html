@@ -11,25 +11,7 @@
 
 <div class="container">
 
-<aside class="menu">
-
-<h2>Java Guia</h2>
-
-<ul>
-<li><a href="index.html">Introdução</a></li>
-<li><a href="variaveis.html">Variáveis</a></li>
-<li><a href="condicionais.html">Condicionais</a></li>
-<li><a href="repeticao.html">Repetição</a></li>
-
-<li><a href="classes.html">Classes</a></li>
-<li><a href="encapsulamento.html">Encapsulamento</a></li>
-<li><a href="heranca.html">Herança</a></li>
-<li><a href="polimorfismo.html">Polimorfismo</a></li>
-
-<li><a href="sobre.html">Sobre o Projeto</a></li>
-</ul>
-
-</aside>
+<div id="menu"></div>
 
 <main class="conteudo">
 
@@ -37,10 +19,40 @@
 
 <p>
 As estruturas condicionais permitem que o programa tome decisões
-com base em uma condição lógica.
+durante a execução. Dependendo do resultado de uma condição lógica,
+diferentes blocos de código podem ser executados.
 </p>
 
+<p>
+Essas estruturas são muito utilizadas quando precisamos verificar
+situações como idade, notas, valores ou qualquer outra condição.
+</p>
+
+<hr>
+
+<h2>Operadores relacionais</h2>
+
+<p>
+Para criar condições utilizamos operadores relacionais:
+</p>
+
+<ul>
+<li><strong>==</strong> igual</li>
+<li><strong>!=</strong> diferente</li>
+<li><strong>&gt;</strong> maior que</li>
+<li><strong>&lt;</strong> menor que</li>
+<li><strong>&gt;=</strong> maior ou igual</li>
+<li><strong>&lt;=</strong> menor ou igual</li>
+</ul>
+
+<hr>
+
 <h2>Exemplo com if</h2>
+
+<p>
+A estrutura <strong>if</strong> executa um bloco de código somente
+se a condição for verdadeira.
+</p>
 
 <pre>
 <code>
@@ -60,7 +72,19 @@ public class Exemplo {
 </code>
 </pre>
 
+<p>
+Nesse exemplo, a mensagem será exibida apenas se a idade
+for maior ou igual a 18.
+</p>
+
+<hr>
+
 <h2>Exemplo com if / else</h2>
+
+<p>
+A estrutura <strong>else</strong> permite executar um bloco de código
+quando a condição do <strong>if</strong> for falsa.
+</p>
 
 <pre>
 <code>
@@ -74,7 +98,19 @@ if(idade >= 18){
 </code>
 </pre>
 
+<p>
+Se a condição não for verdadeira, o programa executa o bloco
+de código dentro do <strong>else</strong>.
+</p>
+
+<hr>
+
 <h2>Exemplo com if / else if</h2>
+
+<p>
+Quando precisamos verificar várias condições, utilizamos
+<strong>else if</strong>.
+</p>
 
 <pre>
 <code>
@@ -90,9 +126,100 @@ if(nota >= 7){
 </code>
 </pre>
 
+<p>
+Nesse exemplo:
+</p>
+
+<ul>
+<li>nota maior ou igual a 7 → Aprovado</li>
+<li>nota maior ou igual a 5 → Recuperação</li>
+<li>caso contrário → Reprovado</li>
+</ul>
+
+<hr>
+
+<h2>Estrutura switch</h2>
+
+<p>
+O <strong>switch</strong> é utilizado quando precisamos comparar
+uma variável com vários valores possíveis.
+</p>
+
+<pre>
+<code>
+int dia = 3;
+
+switch(dia){
+
+    case 1:
+        System.out.println("Domingo");
+        break;
+
+    case 2:
+        System.out.println("Segunda-feira");
+        break;
+
+    case 3:
+        System.out.println("Terça-feira");
+        break;
+
+    default:
+        System.out.println("Dia inválido");
+
+}
+</code>
+</pre>
+
+<p>
+A palavra <strong>break</strong> interrompe a execução do bloco
+dentro do switch.
+</p>
+
+<hr>
+
+<h2>Operadores lógicos</h2>
+
+<p>
+Também podemos combinar condições utilizando operadores lógicos:
+</p>
+
+<ul>
+<li><strong>&amp;&amp;</strong> → E lógico</li>
+<li><strong>||</strong> → OU lógico</li>
+<li><strong>!</strong> → NÃO lógico</li>
+</ul>
+
+<p><strong>Exemplo:</strong></p>
+
+<pre>
+<code>
+int idade = 20;
+boolean possuiCarteira = true;
+
+if(idade >= 18 && possuiCarteira){
+    System.out.println("Pode dirigir");
+}
+</code>
+</pre>
+
+<hr>
+
+<h2>Atividade</h2>
+
+<p>
+Crie um programa em Java que:
+</p>
+
+<ul>
+<li>Declare uma variável chamada <strong>nota</strong></li>
+<li>Se a nota for maior ou igual a 7 → exibir "Aprovado"</li>
+<li>Se a nota for maior ou igual a 5 → exibir "Recuperação"</li>
+<li>Caso contrário → exibir "Reprovado"</li>
+</ul>
+
 </main>
 
 </div>
-
+<script src="js/menu.js"></script>
 </body>
 </html>
