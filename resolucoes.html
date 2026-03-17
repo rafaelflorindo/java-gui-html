@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Resoluções de Exercícios</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div id="menu"></div>
+
+        <main class="conteudo">
+
+            <h1>Resoluções de Exercícios</h1>
+
+            <p>
+                Nesta seção você encontrará sugestões de resolução para os exercícios propostos.
+            </p>
+
+            <p>
+                Tente resolver os exercícios antes de consultar esta página.
+            </p>
+
+            <hr>
+
+            <h2>Exercício - Variáveis</h2>
+
+            <pre>
+<code>
+public class ExercicioVariaveis {
+
+    public static void main(String[] args) {
+
+        String nome = "João";
+        int idade = 20;
+        double altura = 1.75;
+
+        System.out.println("Nome: " + nome);
+        System.out.println("Idade: " + idade);
+        System.out.println("Altura: " + altura);
+
+    }
+
+}
+</code>
+</pre>
+
+<hr>
+
+<h2>Exercício - Condicionais</h2>
+
+<pre>
+<code>
+import java.util.Scanner;
+
+public class ExercicioCondicional {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Digite um número: ");
+        int numero = sc.nextInt();
+
+        if(numero > 0){
+            System.out.println("Número positivo");
+        }else if(numero < 0){
+            System.out.println("Número negativo");
+        }else{
+            System.out.println("Número é zero");
+        }
+
+    }
+
+}
+</code>
+</pre>
+<hr>
+
+<h2>Exercício - Repetição</h2>
+
+<pre>
+<code>
+public class ExercicioRepeticao {
+
+    public static void main(String[] args) {
+
+        for(int i = 1; i <= 5; i++){
+            System.out.println("Número: " + i);
+        }
+
+    }
+
+}
+</code>
+</pre>
+            <hr>
+
+            <h2>Exercício - Scanner</h2>
+
+            <pre>
+<code>
+import java.util.Scanner;
+
+public class ExercicioScanner {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Digite seu nome: ");
+        String nome = sc.nextLine();
+
+        System.out.print("Digite sua idade: ");
+        int idade = sc.nextInt();
+
+        System.out.print("Digite sua altura: ");
+        double altura = sc.nextDouble();
+
+        System.out.println(nome + " - " + idade + " - " + altura);
+
+    }
+
+}
+</code>
+</pre>
+
+            <hr>
+
+            <h2>Exercício - ArrayList</h2>
+
+            <pre>
+<code>
+import java.util.ArrayList;
+
+public class ExercicioArrayList {
+
+    public static void main(String[] args) {
+
+        ArrayList<String> nomes = new ArrayList<>();
+
+        nomes.add("Ana");
+        nomes.add("Carlos");
+        nomes.add("Maria");
+
+        for(String nome : nomes){
+            System.out.println(nome);
+        }
+
+    }
+
+}
+</code>
+</pre>
+
+            <hr>
+
+            <h2>Exercício - Menu</h2>
+
+            <pre>
+<code>
+import java.util.Scanner;
+
+public class ExercicioMenu {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int opcao;
+
+        do{
+
+            System.out.println("1 - Olá");
+            System.out.println("2 - Sair");
+
+            opcao = sc.nextInt();
+
+            switch(opcao){
+                case 1:
+                    System.out.println("Olá!");
+                    break;
+            }
+
+        }while(opcao != 2);
+
+    }
+
+}
+</code>
+</pre>
+
+        </main>
+
+    </div>
+
+    <footer class="footer">
+        <img src="../imagens/base_site_logos-GPTW.png" alt="Selo GPTW">
+    </footer>
+
+    <script src="js/menu.js"></script>
+</body>
+
+</html>

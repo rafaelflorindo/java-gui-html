@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Getters e Setters</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div id="menu"></div>
+
+        <main class="conteudo">
+
+            <h1>Getters e Setters</h1>
+
+            <p>
+                Getters e Setters são métodos utilizados para acessar e modificar atributos privados.
+            </p>
+
+            <hr>
+
+            <h2>Exemplo</h2>
+
+            <pre><code>
+public class Pessoa {
+
+    private String nome;
+
+    public String getNome(){
+        return nome;
+    }
+
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+
+}
+</code></pre>
+
+            <p>
+                Isso garante maior controle sobre os dados.
+            </p>
+
+        </main>
+    </div>
+
+    <footer class="footer">
+        <img src="../imagens/base_site_logos-GPTW.png">
+    </footer>
+
+    <script src="js/menu.js"></script>
+</body>
+
+</html>

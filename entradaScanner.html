@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<title>Entrada de Dados com Scanner</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<div id="menu"></div>
+
+<main class="conteudo">
+
+<h1>Entrada de Dados com Scanner</h1>
+
+<p>
+Em Java, para receber dados do usuário pelo teclado, utilizamos a classe
+<strong>Scanner</strong>.
+</p>
+
+<p>
+Ela permite ler diferentes tipos de dados, como números, textos e valores booleanos.
+</p>
+
+<hr>
+
+<h2>Importando a classe</h2>
+
+<pre>
+<code>
+import java.util.Scanner;
+</code>
+</pre>
+
+<hr>
+
+<h2>Criando o Scanner</h2>
+
+<pre>
+<code>
+Scanner scanner = new Scanner(System.in);
+</code>
+</pre>
+
+<p>
+O <strong>System.in</strong> indica que os dados serão lidos do teclado.
+</p>
+
+<hr>
+
+<h2>Lendo diferentes tipos de dados</h2>
+
+<pre>
+<code>
+import java.util.Scanner;
+
+public class EntradaDados {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite um número inteiro: ");
+        int numeroInteiro = scanner.nextInt();
+
+        System.out.print("Digite um número decimal: ");
+        double numeroDecimal = scanner.nextDouble();
+
+        System.out.print("Digite um caractere: ");
+        char caractere = scanner.next().charAt(0);
+
+        System.out.print("Digite verdadeiro ou falso: ");
+        boolean valorBooleano = scanner.nextBoolean();
+
+        scanner.nextLine(); // limpeza de buffer
+
+        System.out.print("Digite um texto: ");
+        String texto = scanner.nextLine();
+
+        System.out.println("\n--- Dados informados ---");
+        System.out.println("Inteiro: " + numeroInteiro);
+        System.out.println("Decimal: " + numeroDecimal);
+        System.out.println("Caractere: " + caractere);
+        System.out.println("Booleano: " + valorBooleano);
+        System.out.println("Texto: " + texto);
+
+        scanner.close();
+    }
+}
+</code>
+</pre>
+
+<hr>
+
+<h2>Explicação dos métodos</h2>
+
+<ul>
+<li><strong>nextInt()</strong> → lê números inteiros</li>
+<li><strong>nextDouble()</strong> → lê números decimais</li>
+<li><strong>next()</strong> → lê uma palavra</li>
+<li><strong>nextLine()</strong> → lê uma linha completa</li>
+<li><strong>nextBoolean()</strong> → lê verdadeiro ou falso</li>
+</ul>
+
+<hr>
+
+<h2>Atenção ao nextLine()</h2>
+
+<p>
+Após utilizar métodos como <strong>nextInt()</strong> ou <strong>nextDouble()</strong>,
+é necessário utilizar um <strong>nextLine()</strong> para limpar o buffer do teclado.
+</p>
+
+<p>
+Caso isso não seja feito, o próximo <strong>nextLine()</strong> pode ser ignorado.
+</p>
+
+<hr>
+
+<h2>Boas práticas</h2>
+
+<ul>
+<li>Sempre informar ao usuário o que deve ser digitado</li>
+<li>Utilizar mensagens claras no console</li>
+<li>Fechar o Scanner com <strong>close()</strong></li>
+</ul>
+
+<hr>
+
+<h2>Atividade</h2>
+
+<p>
+Crie um programa que solicite ao usuário:
+</p>
+
+<ul>
+<li>Nome</li>
+<li>Idade</li>
+<li>Altura</li>
+<li>Se está matriculado (true/false)</li>
+</ul>
+
+<p>
+Depois exiba todas as informações no console.
+</p>
+
+</main>
+
+</div>
+
+<footer class="footer">
+    <img src="../imagens/base_site_logos-GPTW.png" alt="Selo GPTW">
+</footer>
+
+<script src="js/menu.js"></script>
+</body>
+</html>

@@ -2,66 +2,96 @@
 <html lang="pt-br">
 
 <head>
-<meta charset="UTF-8">
-<title>Variáveis em Java</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>Variáveis em Java</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-<div id="menu"></div>
+        <div id="menu"></div>
 
-<main class="conteudo">
+        <main class="conteudo">
 
-<h1>Variáveis em Java</h1>
+            <h1>Variáveis em Java</h1>
 
-<p>
-Variáveis são utilizadas para armazenar dados durante a execução de um programa.
-Cada variável possui um nome, um tipo de dado e um valor armazenado.
-</p>
+            <p>
+                Variáveis são utilizadas para armazenar dados durante a execução de um programa.
+                Cada variável possui um nome, um tipo de dado e um valor armazenado.
+            </p>
 
-<p>
-Em Java, antes de utilizar uma variável, é necessário declará-la informando
-o tipo de dado que ela irá armazenar.
-</p>
+            <p>
+                Em Java, antes de utilizar uma variável, é necessário declará-la informando
+                o tipo de dado que ela irá armazenar.
+            </p>
 
-<h2>Estrutura de uma variável</h2>
+            <h2>Estrutura de uma variável</h2>
 
-<pre>
+            <pre>
 <code>
 tipo nomeDaVariavel = valor;
 </code>
 </pre>
 
-<p><strong>Exemplo:</strong></p>
+            <p><strong>Exemplo:</strong></p>
 
-<pre>
+            <pre>
 <code>
 int idade = 20;
 </code>
 </pre>
 
-<ul>
-<li><strong>int</strong> → tipo da variável</li>
-<li><strong>idade</strong> → nome da variável</li>
-<li><strong>20</strong> → valor armazenado</li>
-</ul>
+            <ul>
+                <li><strong>int</strong> → tipo da variável</li>
+                <li><strong>idade</strong> → nome da variável</li>
+                <li><strong>20</strong> → valor armazenado</li>
+            </ul>
 
-<h2>Tipos de dados comuns em Java</h2>
+            <hr>
 
-<ul>
-<li><strong>int</strong> → números inteiros</li>
-<li><strong>double</strong> → números decimais</li>
-<li><strong>char</strong> → um único caractere</li>
-<li><strong>boolean</strong> → verdadeiro ou falso</li>
-<li><strong>String</strong> → textos</li>
-</ul>
+            <h2>Tipos de dados em Java</h2>
 
-<h2>Exemplo de uso de variáveis</h2>
+            <p>
+                Em Java, os tipos de dados são divididos em duas categorias principais:
+            </p>
 
-<pre>
+            <h3>Tipos Primitivos</h3>
+
+            <p>
+                São tipos básicos que armazenam valores diretamente na memória.
+            </p>
+
+            <ul>
+                <li><strong>int</strong> → números inteiros</li>
+                <li><strong>double</strong> → números decimais</li>
+                <li><strong>char</strong> → um único caractere</li>
+                <li><strong>boolean</strong> → verdadeiro ou falso</li>
+            </ul>
+
+            <h3>Tipos de Referência (Não Primitivos)</h3>
+
+            <p>
+                São tipos que armazenam uma referência para um objeto na memória.
+            </p>
+
+            <ul>
+                <li><strong>String</strong> → textos</li>
+                <li><strong>Arrays</strong></li>
+                <li><strong>Objetos (Classes)</strong></li>
+            </ul>
+
+            <p>
+                Os tipos de referência serão estudados em detalhes em seções específicas,
+                onde veremos como trabalhar com <strong>arrays</strong> e <strong>classes</strong>.
+            </p>
+
+            <hr>
+
+            <h2>Exemplo de uso de variáveis</h2>
+
+            <pre>
 <code>
 public class Exemplo {
 
@@ -79,31 +109,31 @@ public class Exemplo {
 </code>
 </pre>
 
-<h2>Explicação do código</h2>
+            <h2>Explicação do código</h2>
 
-<p>
-Neste exemplo foram declaradas três variáveis:
-</p>
+            <p>
+                Neste exemplo foram declaradas três variáveis:
+            </p>
 
-<ul>
-<li><strong>idade</strong> → armazena um número inteiro</li>
-<li><strong>salario</strong> → armazena um número decimal</li>
-<li><strong>nome</strong> → armazena um texto</li>
-</ul>
+            <ul>
+                <li><strong>idade</strong> → armazena um número inteiro (tipo primitivo)</li>
+                <li><strong>salario</strong> → armazena um número decimal (tipo primitivo)</li>
+                <li><strong>nome</strong> → armazena um texto (tipo de referência)</li>
+            </ul>
 
-<p>
-O comando abaixo exibe o valor da variável <strong>nome</strong> no console:
-</p>
+            <p>
+                O comando abaixo exibe o valor da variável <strong>nome</strong> no console:
+            </p>
 
-<pre>
+            <pre>
 <code>
 System.out.println(nome);
 </code>
 </pre>
 
-<h2>Outro exemplo</h2>
+            <h2>Outro exemplo</h2>
 
-<pre>
+            <pre>
 <code>
 public class DadosAluno {
 
@@ -123,17 +153,17 @@ public class DadosAluno {
 </code>
 </pre>
 
-<h2>Boas práticas ao nomear variáveis</h2>
+            <h2>Boas práticas ao nomear variáveis</h2>
 
-<ul>
-<li>Utilizar nomes que representem o conteúdo da variável</li>
-<li>Evitar nomes muito curtos</li>
-<li>Utilizar padrão <strong>camelCase</strong></li>
-</ul>
+            <ul>
+                <li>Utilizar nomes que representem o conteúdo da variável</li>
+                <li>Evitar nomes muito curtos</li>
+                <li>Utilizar padrão <strong>camelCase</strong></li>
+            </ul>
 
-<p><strong>Exemplos:</strong></p>
+            <p><strong>Exemplos:</strong></p>
 
-<pre>
+            <pre>
 <code>
 int idadeAluno;
 double valorProduto;
@@ -141,25 +171,31 @@ String nomeCliente;
 </code>
 </pre>
 
-<h2>Atividade</h2>
+            <h2>Atividade</h2>
 
-<p>
-Crie um programa em Java que declare as seguintes variáveis:
-</p>
+            <p>
+                Crie um programa em Java que declare as seguintes variáveis:
+            </p>
 
-<ul>
-<li>Nome do aluno</li>
-<li>Idade</li>
-<li>Altura</li>
-</ul>
+            <ul>
+                <li>Nome do aluno</li>
+                <li>Idade</li>
+                <li>Altura</li>
+            </ul>
 
-<p>
-Depois exiba todas essas informações utilizando <strong>System.out.println()</strong>.
-</p>
+            <p>
+                Depois exiba todas essas informações utilizando <strong>System.out.println()</strong>.
+            </p>
 
-</main>
+        </main>
 
-</div>
-<script src="js/menu.js"></script>
+    </div>
+
+    <footer class="footer">
+        <img src="../imagens/base_site_logos-GPTW.png" alt="Selo GPTW">
+    </footer>
+
+    <script src="js/menu.js"></script>
 </body>
+
 </html>

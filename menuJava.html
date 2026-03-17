@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<title>Menu em Java</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<div id="menu"></div>
+
+<main class="conteudo">
+
+<h1>Menu em Java com do while e switch</h1>
+
+<p>
+Em muitos programas é necessário apresentar um <strong>menu de opções</strong>
+para que o usuário escolha o que deseja executar.
+</p>
+
+<p>
+Para isso, utilizamos estruturas de repetição e decisão, permitindo que
+o programa continue executando até que o usuário escolha sair.
+</p>
+
+<hr>
+
+<h2>Estruturas utilizadas</h2>
+
+<ul>
+<li><strong>do while</strong> → repete o menu até o usuário decidir sair</li>
+<li><strong>switch</strong> → executa ações com base na opção escolhida</li>
+</ul>
+
+<hr>
+
+<h2>Exemplo de menu</h2>
+
+<pre>
+<code>
+import java.util.Scanner;
+
+public class MenuExemplo {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        int opcao;
+
+        do {
+
+            System.out.println("=== MENU ===");
+            System.out.println("1 - Cadastrar");
+            System.out.println("2 - Listar");
+            System.out.println("3 - Sair");
+            System.out.print("Escolha uma opção: ");
+
+            opcao = scanner.nextInt();
+
+            switch(opcao){
+
+                case 1:
+                    System.out.println("Cadastro realizado!");
+                    break;
+
+                case 2:
+                    System.out.println("Listando dados...");
+                    break;
+
+                case 3:
+                    System.out.println("Encerrando o programa...");
+                    break;
+
+                default:
+                    System.out.println("Opção inválida!");
+            }
+
+        } while(opcao != 3);
+
+        scanner.close();
+    }
+}
+</code>
+</pre>
+
+<hr>
+
+<h2>Explicação do código</h2>
+
+<ul>
+<li>O <strong>do while</strong> garante que o menu será exibido pelo menos uma vez</li>
+<li>O programa continua executando enquanto a opção for diferente de <strong>3</strong></li>
+<li>O <strong>switch</strong> verifica qual opção o usuário escolheu</li>
+<li>Cada <strong>case</strong> representa uma ação diferente</li>
+<li>O <strong>break</strong> evita que outros casos sejam executados</li>
+</ul>
+
+<hr>
+
+<h2>Boas práticas</h2>
+
+<ul>
+<li>Sempre incluir a opção de sair do programa</li>
+<li>Utilizar <strong>default</strong> para tratar opções inválidas</li>
+<li>Organizar bem a exibição do menu para facilitar a leitura</li>
+</ul>
+
+<hr>
+
+<h2>Atividade</h2>
+
+<p>
+Crie um programa com menu que possua as seguintes opções:
+</p>
+
+<ul>
+<li>1 - Inserir nome</li>
+<li>2 - Exibir nome</li>
+<li>3 - Sair</li>
+</ul>
+
+<p>
+Utilize <strong>do while</strong> e <strong>switch</strong>.
+</p>
+
+</main>
+
+</div>
+
+<footer class="footer">
+    <img src="../imagens/base_site_logos-GPTW.png" alt="Selo GPTW">
+</footer>
+
+<script src="js/menu.js"></script>
+</body>
+</html>
