@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Packages em Java</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div id="menu"></div>
+
+        <main class="conteudo">
+
+            <h1>Packages em Java</h1>
+
+            <p>
+                Packages (pacotes) são utilizados para organizar classes em Java.
+            </p>
+
+            <p>
+                Eles funcionam como pastas dentro do projeto, permitindo separar o código
+                por responsabilidade.
+            </p>
+
+            <hr>
+
+            <h2>Por que usar packages?</h2>
+
+            <ul>
+                <li>Organizar melhor o projeto</li>
+                <li>Facilitar a manutenção</li>
+                <li>Evitar conflitos de nomes</li>
+            </ul>
+
+            <hr>
+
+            <h2>Exemplo de declaração</h2>
+
+            <pre>
+<code>
+package model;
+</code>
+</pre>
+
+            <p>
+                Essa linha deve estar no início do arquivo Java.
+            </p>
+
+            <hr>
+
+            <h2>Organizando as classes</h2>
+
+            <p>
+                Uma boa prática é separar as classes por tipo:
+            </p>
+
+            <ul>
+                <li><strong>model</strong> → classes de dados (ex: Pessoa)</li>
+                <li><strong>controller</strong> → regras do sistema</li>
+                <li><strong>dao</strong> → acesso a dados</li>
+            </ul>
+
+            <hr>
+
+            <h2>Exemplo de estrutura</h2>
+
+            <pre>
+<code>
+src/
+ ├── model/
+ │    └── Pessoa.java
+ ├── controller/
+ │    └── PessoaController.java
+ ├── dao/
+ │    └── PessoaDAO.java
+ └── Main.java
+</code>
+</pre>
+
+            <hr>
+
+            <h2>Importando classes de outro package</h2>
+
+            <pre>
+<code>
+import model.Pessoa;
+</code>
+</pre>
+
+            <p>
+                Isso permite utilizar a classe em outro arquivo.
+            </p>
+
+            <hr>
+
+            <h2>Exemplo prático</h2>
+
+            <p>
+                Classe no package <strong>model</strong>:
+            </p>
+
+            <pre>
+<code>
+package model;
+
+public class Pessoa {
+
+    private String nome;
+
+    public Pessoa(String nome){
+        this.nome = nome;
+    }
+
+}
+</code>
+</pre>
+
+            <p>
+                Classe principal utilizando a classe Pessoa:
+            </p>
+
+            <pre>
+<code>
+import model.Pessoa;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Pessoa p = new Pessoa("Maria");
+
+    }
+
+}
+</code>
+</pre>
+
+            <hr>
+
+            <h2>Boas práticas</h2>
+
+            <ul>
+                <li>Utilizar nomes simples e em minúsculo</li>
+                <li>Separar classes por responsabilidade</li>
+                <li>Evitar deixar todas as classes no mesmo pacote</li>
+            </ul>
+
+            <hr>
+
+            <h2>Preparando para próximos conteúdos</h2>
+
+            <p>
+                A organização em packages é fundamental para trabalhar com
+                <strong>Controller</strong> e <strong>DAO</strong>.
+            </p>
+
+            <p>
+                Nos próximos conteúdos, iremos utilizar essa estrutura para construir sistemas mais completos.
+            </p>
+
+            <hr>
+
+            <h2>Atividade</h2>
+
+            <p>
+                Crie um projeto com:
+            </p>
+
+            <ul>
+                <li>Um package <strong>model</strong> com a classe Pessoa</li>
+                <li>Um package <strong>controller</strong> com uma classe de controle</li>
+                <li>Uma classe Main para executar o programa</li>
+            </ul>
+
+        </main>
+
+    </div>
+
+    <footer class="footer">
+        <img src="../imagens/base_site_logos-GPTW.png" alt="Selo GPTW">
+    </footer>
+
+    <script src="js/menu.js"></script>
+</body>
+
+</html>

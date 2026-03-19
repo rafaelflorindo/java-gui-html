@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Organização do Código</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div id="menu"></div>
+
+        <main class="conteudo">
+
+            <h1>Organização do Código</h1>
+
+            <p>
+                Organizar o código é fundamental para facilitar a leitura, manutenção e evolução do sistema.
+            </p>
+
+            <p>
+                Programas desorganizados se tornam difíceis de entender e modificar.
+            </p>
+
+            <hr>
+
+            <h2>Problema comum</h2>
+
+            <p>
+                No início, é comum colocar toda a lógica dentro do método <strong>main</strong>.
+            </p>
+
+            <pre>
+<code>
+public class Exemplo {
+
+    public static void main(String[] args) {
+
+        System.out.println("Bem-vindo!");
+
+        int a = 10;
+        int b = 20;
+
+        int soma = a + b;
+
+        System.out.println("Resultado: " + soma);
+
+    }
+
+}
+</code>
+</pre>
+
+            <p>
+                Apesar de funcionar, esse tipo de código não é organizado.
+            </p>
+
+            <hr>
+
+            <h2>Solução: uso de métodos</h2>
+
+            <p>
+                Podemos dividir o programa em métodos, onde cada parte tem uma responsabilidade.
+            </p>
+
+            <pre>
+<code>
+public class Exemplo {
+
+    public static void main(String[] args) {
+
+        mostrarMensagem();
+        calcularSoma();
+
+    }
+
+    public static void mostrarMensagem(){
+        System.out.println("Bem-vindo!");
+    }
+
+    public static void calcularSoma(){
+        int a = 10;
+        int b = 20;
+
+        int soma = a + b;
+
+        System.out.println("Resultado: " + soma);
+    }
+
+}
+</code>
+</pre>
+
+            <hr>
+
+            <h2>Separando responsabilidades</h2>
+
+            <p>
+                Cada método deve ter uma função específica.
+            </p>
+
+            <ul>
+                <li>Entrada de dados</li>
+                <li>Processamento</li>
+                <li>Exibição de resultados</li>
+            </ul>
+
+            <p>
+                Isso torna o código mais organizado e fácil de entender.
+            </p>
+
+            <hr>
+
+            <h2>Exemplo mais organizado</h2>
+
+            <pre>
+<code>
+public class Exemplo {
+
+    public static void main(String[] args) {
+
+        int resultado = somar(10, 20);
+        exibirResultado(resultado);
+
+    }
+
+    public static int somar(int a, int b){
+        return a + b;
+    }
+
+    public static void exibirResultado(int valor){
+        System.out.println("Resultado: " + valor);
+    }
+
+}
+</code>
+</pre>
+
+            <hr>
+
+            <h2>Vantagens da organização</h2>
+
+            <ul>
+                <li>Código mais limpo</li>
+                <li>Facilidade de manutenção</li>
+                <li>Reutilização de métodos</li>
+                <li>Melhor entendimento</li>
+            </ul>
+
+            <hr>
+
+            <h2>Preparando para projetos maiores</h2>
+
+            <p>
+                Em sistemas maiores, o código é dividido em diferentes classes,
+                cada uma com sua responsabilidade.
+            </p>
+
+            <p>
+                Essa organização é a base para padrões como <strong>Controller</strong> e <strong>DAO</strong>,
+                que serão estudados posteriormente.
+            </p>
+
+            <hr>
+
+            <h2>Boas práticas</h2>
+
+            <ul>
+                <li>Evitar colocar toda a lógica no <strong>main</strong></li>
+                <li>Criar métodos com nomes claros</li>
+                <li>Cada método deve ter uma única responsabilidade</li>
+            </ul>
+
+            <hr>
+
+            <h2>Atividade</h2>
+
+            <p>
+                Reescreva um programa simples que você já fez,
+                separando as funcionalidades em métodos.
+            </p>
+
+            <p>
+                Exemplo:
+            </p>
+
+            <ul>
+                <li>Um método para ler dados</li>
+                <li>Um método para processar</li>
+                <li>Um método para exibir</li>
+            </ul>
+
+        </main>
+
+    </div>
+
+    <footer class="footer">
+        <img src="../imagens/base_site_logos-GPTW.png" alt="Selo GPTW">
+    </footer>
+
+    <script src="js/menu.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Arrays em Java</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div id="menu"></div>
+
+        <main class="conteudo">
+
+            <h1>Arrays em Java</h1>
+
+            <p>
+                Um <strong>Array</strong> é uma estrutura utilizada para armazenar
+                vários valores do mesmo tipo em uma única variável.
+            </p>
+
+            <p>
+                Cada valor é armazenado em uma posição chamada
+                <strong>índice</strong>. Os índices começam sempre em <strong>0</strong>.
+            </p>
+
+            <hr>
+
+            <h2>Criando um Array</h2>
+
+            <pre>
+<code>
+int[] numeros = new int[3];
+</code>
+</pre>
+
+            <p>
+                Neste exemplo criamos um array chamado <strong>numeros</strong>
+                com espaço para armazenar <strong>3 números inteiros</strong>.
+            </p>
+
+            <hr>
+
+            <h2>Utilizando o Array sem laço de repetição</h2>
+
+            <pre>
+<code>
+int[] numeros = new int[3];
+
+numeros[0] = 10;
+numeros[1] = 20;
+numeros[2] = 30;
+
+System.out.println(numeros[0]);
+System.out.println(numeros[1]);
+System.out.println(numeros[2]);
+</code>
+</pre>
+
+            <p>
+                Cada posição do array é acessada utilizando o índice.
+            </p>
+
+            <hr>
+
+            <h2>Utilizando o Array com laço de repetição</h2>
+
+            <p>
+                Quando precisamos acessar todos os elementos do array,
+                normalmente utilizamos um laço <strong>for</strong>.
+            </p>
+
+            <pre>
+<code>
+int[] numeros = {10, 20, 30};
+
+for(int i = 0; i < numeros.length; i++){
+
+    System.out.println(numeros[i]);
+
+}
+</code>
+</pre>
+
+            <p>
+                O atributo <strong>length</strong> indica o tamanho do array.
+            </p>
+
+            <hr>
+
+            <h2>Arrays de Objetos</h2>
+
+            <p>
+                Arrays também podem armazenar <strong>objetos</strong>.
+                Para isso, precisamos primeiro criar uma classe.
+            </p>
+
+            <hr>
+
+            <h2>Classe Pessoa</h2>
+
+            <pre>
+<code>
+public class Pessoa {
+
+    private int id;
+    private String nome;
+
+    public Pessoa(int id, String nome){
+        this.id = id;
+        this.nome = nome;
+    }
+
+    public int getId(){
+        return id;
+    }
+
+    public String getNome(){
+        return nome;
+    }
+
+}
+</code>
+</pre>
+
+            <p>
+                Essa classe possui dois atributos:
+            </p>
+
+            <ul>
+                <li>id</li>
+                <li>nome</li>
+            </ul>
+
+            <hr>
+
+            <h2>Criando um Array de Pessoa</h2>
+
+            <pre>
+<code>
+Pessoa[] pessoas = new Pessoa[3];
+
+pessoas[0] = new Pessoa(1, "Ana");
+pessoas[1] = new Pessoa(2, "Carlos");
+pessoas[2] = new Pessoa(3, "Maria");
+</code>
+</pre>
+
+            <hr>
+
+            <h2>Percorrendo o Array de Pessoas</h2>
+
+            <pre>
+<code>
+for(int i = 0; i < pessoas.length; i++){
+
+    System.out.println(
+        pessoas[i].getId() + " - " + pessoas[i].getNome()
+    );
+
+}
+</code>
+</pre>
+
+            <p>
+                Neste exemplo utilizamos o método <strong>getId()</strong>
+                e <strong>getNome()</strong> para acessar os dados do objeto.
+            </p>
+
+            <hr>
+
+            <h2>Resumo</h2>
+
+            <ul>
+                <li>Arrays armazenam vários valores do mesmo tipo</li>
+                <li>O índice sempre começa em 0</li>
+                <li>O tamanho do array é fixo</li>
+                <li>Arrays também podem armazenar objetos</li>
+            </ul>
+
+            <hr>
+
+            <h2>Atividade</h2>
+
+            <p>
+                Crie um array com <strong>4 objetos Pessoa</strong> e exiba
+                os dados utilizando um <strong>for</strong>.
+            </p>
+
+        </main>
+
+    </div>
+<footer class="footer">
+        <img src="../imagens/base_site_logos-GPTW.png" alt="Selo GPTW">
+    </footer>
+    <script src="js/menu.js"></script>
+</body>
+
+</html>

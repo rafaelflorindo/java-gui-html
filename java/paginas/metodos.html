@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Métodos em Java</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div id="menu"></div>
+
+        <main class="conteudo">
+
+            <h1>Métodos em Java</h1>
+
+            <p>
+                Métodos são blocos de código responsáveis por executar uma determinada ação.
+                Eles ajudam a organizar o programa e evitar repetição de código.
+            </p>
+
+            <hr>
+
+            <h2>Estrutura de um método</h2>
+
+            <pre><code>
+tipoRetorno nomeMetodo(parametros){
+    // código
+}
+</code></pre>
+
+            <hr>
+
+            <h2>Exemplo simples</h2>
+
+            <pre><code>
+public class Exemplo {
+
+    public static void main(String[] args) {
+        saudacao();
+    }
+
+    public static void saudacao(){
+        System.out.println("Olá!");
+    }
+
+}
+</code></pre>
+
+            <hr>
+
+            <h2>Método com parâmetro</h2>
+
+            <pre><code>
+public static void mostrarNome(String nome){
+    System.out.println("Nome: " + nome);
+}
+</code></pre>
+
+            <hr>
+
+            <h2>Método com retorno</h2>
+
+            <pre><code>
+public static int somar(int a, int b){
+    return a + b;
+}
+</code></pre>
+
+            <p>
+                O <strong>return</strong> devolve um valor ao método que fez a chamada.
+            </p>
+
+            <hr>
+
+            <h2>Boas práticas</h2>
+
+            <ul>
+                <li>Utilizar nomes claros</li>
+                <li>Evitar métodos muito grandes</li>
+                <li>Cada método deve ter uma responsabilidade</li>
+            </ul>
+
+        </main>
+    </div>
+
+    <footer class="footer">
+        <img src="../imagens/base_site_logos-GPTW.png">
+    </footer>
+
+    <script src="js/menu.js"></script>
+</body>
+
+</html>

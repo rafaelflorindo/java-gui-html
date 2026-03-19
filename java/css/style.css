@@ -1,0 +1,215 @@
+/* ========================= */
+/* VARIÁVEIS */
+/* ========================= */
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #34495e;
+  --highlight-color: #1abc9c;
+  --background-color: #f4f4f4;
+  --text-color: #222;
+}
+
+/* ========================= */
+/* RESET */
+/* ========================= */
+* {
+  box-sizing: border-box;
+}
+
+/* ========================= */
+/* BODY */
+/* ========================= */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  background: var(--background-color);
+  color: var(--text-color);
+}
+
+/* ========================= */
+/* HEADER */
+/* ========================= */
+header {
+  background: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+header h1{
+    color: #fff;
+}
+/* ========================= */
+/* LAYOUT PRINCIPAL */
+/* ========================= */
+.container {
+  display: flex;
+  align-items: stretch;
+  flex: 1;
+}
+
+/* ========================= */
+/* MENU LATERAL */
+/* ========================= */
+#menu {
+  background: var(--primary-color);
+}
+
+.menu {
+  width: 220px;
+  background: var(--primary-color);
+  padding: 20px;
+}
+
+.menu h2 {
+  color: white;
+  margin-top: 15px;
+}
+
+.menu a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.menu a:hover {
+  background: var(--secondary-color);
+}
+
+.menu a.ativo {
+  background: var(--highlight-color);
+  font-weight: bold;
+}
+
+/* ========================= */
+/* CONTEÚDO */
+/* ========================= */
+.conteudo {
+  flex: 1;
+  padding: 30px;
+}
+
+/* ========================= */
+/* TEXTO */
+/* ========================= */
+h1, h2 {
+  color: var(--primary-color);
+}
+
+p {
+  line-height: 1.6;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+/* ========================= */
+/* CÓDIGO */
+/* ========================= */
+pre {
+  background: #e2e2e2;
+  color: #333;
+  padding: 15px;
+  border-radius: 5px;
+  overflow: auto;
+}
+
+/* ========================= */
+/* FOOTER */
+/* ========================= */
+footer {
+  background: var(--primary-color);
+  color: white;
+  padding: 20px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-text {
+  max-width: 600px;
+  text-align: center;
+}
+
+.footer-img img {
+  max-width: 300px;
+  width: 100%;
+}
+
+/* ========================= */
+/* RESPONSIVIDADE */
+/* ========================= */
+
+/* TABLET */
+@media (max-width: 900px) {
+
+  .container {
+    flex-direction: column;
+  }
+
+  .menu {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .menu h2 {
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu a {
+    background: var(--secondary-color);
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  .conteudo {
+    padding: 20px;
+  }
+}
+
+/* CELULAR */
+@media (max-width: 600px) {
+
+  header h1 {
+    font-size: 20px;
+  }
+
+  header p {
+    font-size: 14px;
+  }
+
+  .conteudo {
+    padding: 15px;
+  }
+
+  pre {
+    font-size: 13px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-img img {
+    max-width: 200px;
+  }
+}

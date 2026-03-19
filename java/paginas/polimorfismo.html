@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<title>Polimorfismo</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<div id="menu"></div>
+
+<main class="conteudo">
+
+<h1>Polimorfismo</h1>
+
+<p>
+Polimorfismo é um dos pilares da Programação Orientada a Objetos.
+A palavra significa <strong>"muitas formas"</strong>.
+</p>
+
+<p>
+Na prática, o polimorfismo permite que um mesmo método tenha
+comportamentos diferentes dependendo da classe que o implementa.
+</p>
+
+<p>
+Isso ocorre geralmente quando utilizamos <strong>herança</strong> e
+<strong>sobrescrita de métodos</strong>.
+</p>
+
+<hr>
+
+<h2>Classe base</h2>
+
+<p>
+Primeiro criamos uma classe genérica chamada <strong>Animal</strong>.
+</p>
+
+<pre>
+<code>
+class Animal{
+
+    public void emitirSom(){
+        System.out.println("Som do animal");
+    }
+
+}
+</code>
+</pre>
+
+<hr>
+
+<h2>Classe derivada</h2>
+
+<p>
+Agora criamos uma classe <strong>Cachorro</strong> que herda da classe
+<strong>Animal</strong> e sobrescreve o método <strong>emitirSom()</strong>.
+</p>
+
+<pre>
+<code>
+class Cachorro extends Animal{
+
+    public void emitirSom(){
+        System.out.println("Latido");
+    }
+
+}
+</code>
+</pre>
+
+<hr>
+
+<h2>Exemplo completo</h2>
+
+<pre>
+<code>
+class Animal{
+
+    public void emitirSom(){
+        System.out.println("Som do animal");
+    }
+
+}
+
+class Cachorro extends Animal{
+
+    public void emitirSom(){
+        System.out.println("Latido");
+    }
+
+}
+
+public class Teste{
+
+    public static void main(String[] args){
+
+        Animal a1 = new Animal();
+        Animal a2 = new Cachorro();
+
+        a1.emitirSom();
+        a2.emitirSom();
+
+    }
+
+}
+</code>
+</pre>
+
+<hr>
+
+<h2>Explicação</h2>
+
+<p>
+Observe a linha abaixo:
+</p>
+
+<pre>
+<code>
+Animal a2 = new Cachorro();
+</code>
+</pre>
+
+<p>
+A variável é do tipo <strong>Animal</strong>, mas o objeto criado é do
+tipo <strong>Cachorro</strong>.
+</p>
+
+<p>
+Quando o método <strong>emitirSom()</strong> é chamado, o Java executa
+a versão do método da classe <strong>Cachorro</strong>.
+</p>
+
+<p>
+Isso é o que chamamos de <strong>polimorfismo</strong>.
+</p>
+
+<hr>
+
+<h2>Outro exemplo</h2>
+
+<p>
+Podemos criar outras classes que também herdam de <strong>Animal</strong>.
+</p>
+
+<pre>
+<code>
+class Gato extends Animal{
+
+    public void emitirSom(){
+        System.out.println("Miado");
+    }
+
+}
+</code>
+</pre>
+
+<p>
+Agora diferentes objetos podem ter comportamentos diferentes
+utilizando o mesmo método.
+</p>
+
+<hr>
+
+<h2>Resumo</h2>
+
+<ul>
+<li>Polimorfismo significa "muitas formas"</li>
+<li>Permite que métodos tenham comportamentos diferentes</li>
+<li>Normalmente ocorre com herança</li>
+<li>Utiliza sobrescrita de métodos</li>
+</ul>
+
+<hr>
+
+<h2>Atividade</h2>
+
+<p>
+Crie um programa com a classe <strong>Veiculo</strong> contendo o método
+<strong>mover()</strong>.
+</p>
+
+<p>
+Depois crie duas classes que herdam de Veiculo:
+</p>
+
+<ul>
+<li>Carro</li>
+<li>Moto</li>
+</ul>
+
+<p>
+Cada classe deve sobrescrever o método <strong>mover()</strong>
+exibindo uma mensagem diferente.
+</p>
+
+</main>
+
+</div>
+<footer class="footer">
+        <img src="../imagens/base_site_logos-GPTW.png" alt="Selo GPTW">
+    </footer>
+<script src="js/menu.js"></script>
+</body>
+</html>

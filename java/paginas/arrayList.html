@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<title>ArrayList em Java</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<div id="menu"></div>
+
+<main class="conteudo">
+
+<h1>ArrayList em Java</h1>
+
+<p>
+O <strong>ArrayList</strong> é uma estrutura de dados utilizada para
+armazenar vários elementos em uma lista.
+</p>
+
+<p>
+Diferente dos arrays, o ArrayList possui <strong>tamanho dinâmico</strong>,
+ou seja, ele pode crescer conforme novos elementos são adicionados.
+</p>
+
+<p>
+O ArrayList faz parte do conjunto de estruturas chamado
+<strong>Collections (Coleções)</strong> da linguagem Java.
+Neste material estamos utilizando apenas o ArrayList, mas em breve
+estudaremos outras estruturas que fazem parte das coleções.
+</p>
+
+<hr>
+
+<h2>Importando a classe</h2>
+
+<p>
+Antes de utilizar o ArrayList é necessário importar a classe.
+</p>
+
+<pre>
+<code>
+import java.util.ArrayList;
+</code>
+</pre>
+
+<hr>
+
+<h2>Criando um ArrayList</h2>
+
+<pre>
+<code>
+ArrayList<String> nomes = new ArrayList<>();
+</code>
+</pre>
+
+<p>
+Neste exemplo criamos uma lista chamada <strong>nomes</strong>
+que irá armazenar valores do tipo <strong>String</strong>.
+</p>
+
+<hr>
+
+<h2>Utilizando o ArrayList sem laço de repetição</h2>
+
+<pre>
+<code>
+ArrayList<String> nomes = new ArrayList<>();
+
+nomes.add("Ana");
+nomes.add("Carlos");
+nomes.add("Maria");
+
+System.out.println(nomes.get(0));
+System.out.println(nomes.get(1));
+System.out.println(nomes.get(2));
+</code>
+</pre>
+
+<p>
+Utilizamos:
+</p>
+
+<ul>
+<li><strong>add()</strong> para adicionar elementos</li>
+<li><strong>get()</strong> para acessar elementos</li>
+</ul>
+
+<hr>
+
+<h2>Utilizando o ArrayList com laço de repetição</h2>
+
+<pre>
+<code>
+ArrayList<String> nomes = new ArrayList<>();
+
+nomes.add("Ana");
+nomes.add("Carlos");
+nomes.add("Maria");
+
+for(int i = 0; i < nomes.size(); i++){
+
+    System.out.println(nomes.get(i));
+
+}
+</code>
+</pre>
+
+<p>
+Utilizamos o método <strong>size()</strong> para saber a quantidade
+de elementos armazenados na lista.
+</p>
+
+<hr>
+
+<h2>ArrayList de Objetos</h2>
+
+<p>
+Assim como os arrays, o ArrayList também pode armazenar
+<strong>objetos</strong>.
+</p>
+
+<p>
+Para isso precisamos primeiro criar uma classe.
+</p>
+
+<hr>
+
+<h2>Classe Pessoa</h2>
+
+<pre>
+<code>
+public class Pessoa {
+
+    private int id;
+    private String nome;
+
+    public Pessoa(int id, String nome){
+        this.id = id;
+        this.nome = nome;
+    }
+
+    public int getId(){
+        return id;
+    }
+
+    public String getNome(){
+        return nome;
+    }
+
+}
+</code>
+</pre>
+
+<hr>
+
+<h2>Criando um ArrayList de Pessoa</h2>
+
+<pre>
+<code>
+ArrayList<Pessoa> pessoas = new ArrayList<>();
+
+pessoas.add(new Pessoa(1, "Ana"));
+pessoas.add(new Pessoa(2, "Carlos"));
+pessoas.add(new Pessoa(3, "Maria"));
+</code>
+</pre>
+
+<hr>
+
+<h2>Percorrendo o ArrayList de Pessoas</h2>
+
+<pre>
+<code>
+for(int i = 0; i < pessoas.size(); i++){
+
+    Pessoa p = pessoas.get(i);
+
+    System.out.println(
+        p.getId() + " - " + p.getNome()
+    );
+
+}
+</code>
+</pre>
+
+<hr>
+
+<h2>Alterando e removendo elementos</h2>
+
+<pre>
+<code>
+ArrayList<String> nomes = new ArrayList<>();
+
+nomes.add("Ana");
+nomes.add("Carlos");
+nomes.add("Maria");
+
+// Alterando um elemento
+nomes.set(1, "João");
+
+// Removendo um elemento
+nomes.remove(0);
+
+// Exibindo a lista atualizada
+for(int i = 0; i < nomes.size(); i++){
+    System.out.println(nomes.get(i));
+}
+</code>
+</pre>
+
+<p>
+Utilizamos:
+</p>
+
+<ul>
+<li><strong>set()</strong> para alterar um elemento em uma posição específica</li>
+<li><strong>remove()</strong> para remover um elemento da lista</li>
+</ul>
+<p>
+<strong>Após remover um elemento, os índices da lista são reorganizados automaticamente.</strong>
+</p>
+<hr>
+
+<h2>Resumo</h2>
+
+<ul>
+<li>ArrayList faz parte das Collections</li>
+<li>Possui tamanho dinâmico</li>
+<li>Possui métodos como add(), get() e size()</li>
+<li>Pode armazenar objetos</li>
+</ul>
+
+<hr>
+
+<h2>Atividade</h2>
+
+<p>
+Crie um <strong>ArrayList de Pessoa</strong> e adicione pelo menos
+<strong>4 pessoas</strong>. Em seguida, utilize um
+<strong>laço for</strong> para exibir os dados.
+</p>
+
+</main>
+
+</div>
+<footer class="footer">
+        <img src="../imagens/base_site_logos-GPTW.png" alt="Selo GPTW">
+    </footer>
+<script src="js/menu.js"></script>
+</body>
+</html>

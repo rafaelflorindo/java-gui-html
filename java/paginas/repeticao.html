@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<title>Estruturas de Repetição</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<div id="menu"></div>
+
+<main class="conteudo">
+
+<h1>Estruturas de Repetição em Java</h1>
+
+<p>
+As estruturas de repetição permitem executar um bloco de código várias vezes,
+de acordo com uma condição definida pelo programador.
+</p>
+
+<p>
+Elas são muito utilizadas quando precisamos repetir tarefas, como percorrer
+listas, exibir valores ou realizar cálculos repetitivos.
+</p>
+
+<h2>Principais estruturas de repetição</h2>
+
+<ul>
+<li><strong>for</strong></li>
+<li><strong>while</strong></li>
+<li><strong>do while</strong></li>
+</ul>
+
+<hr>
+
+<h2>Estrutura for</h2>
+
+<p>
+A estrutura <strong>for</strong> é utilizada quando sabemos antecipadamente
+quantas vezes o bloco de código deverá ser executado.
+</p>
+
+<p><strong>Sintaxe:</strong></p>
+
+<pre>
+<code>
+for(inicialização; condição; incremento){
+    // código que será repetido
+}
+</code>
+</pre>
+
+<h2>Exemplo com for</h2>
+
+<pre>
+<code>
+public class Exemplo {
+
+    public static void main(String[] args) {
+
+        for(int i = 1; i <= 5; i++){
+
+            System.out.println(i);
+
+        }
+
+    }
+
+}
+</code>
+</pre>
+
+<h2>Explicação do código</h2>
+
+<ul>
+<li><strong>int i = 1</strong> → inicializa a variável de controle</li>
+<li><strong>i <= 5</strong> → condição para continuar o loop</li>
+<li><strong>i++</strong> → incrementa o valor da variável</li>
+</ul>
+
+<p>
+Nesse exemplo, o programa exibirá os números de 1 até 5.
+</p>
+
+<hr>
+
+<h2>Estrutura while</h2>
+
+<p>
+A estrutura <strong>while</strong> é utilizada quando não sabemos exatamente
+quantas vezes o código será executado, mas temos uma condição que controla
+a repetição.
+</p>
+
+<p><strong>Sintaxe:</strong></p>
+
+<pre>
+<code>
+while(condição){
+    // código executado enquanto a condição for verdadeira
+}
+</code>
+</pre>
+
+<h2>Exemplo com while</h2>
+
+<pre>
+<code>
+int contador = 1;
+
+while(contador <= 5){
+
+    System.out.println(contador);
+
+    contador++;
+
+}
+</code>
+</pre>
+
+<p>
+Neste exemplo, o programa exibirá os números de 1 até 5 enquanto
+a condição <strong>contador <= 5</strong> for verdadeira.
+</p>
+
+<hr>
+
+<h2>Estrutura do while</h2>
+
+<p>
+A estrutura <strong>do while</strong> é semelhante ao while, porém possui
+uma diferença importante: o bloco de código é executado pelo menos
+uma vez antes da verificação da condição.
+</p>
+
+<p><strong>Sintaxe:</strong></p>
+
+<pre>
+<code>
+do{
+    // código executado
+}while(condição);
+</code>
+</pre>
+
+<h2>Exemplo com do while</h2>
+
+<pre>
+<code>
+int numero = 1;
+
+do{
+
+    System.out.println(numero);
+
+    numero++;
+
+}while(numero <= 5);
+</code>
+</pre>
+
+<p>
+Nesse caso, o bloco será executado primeiro e somente depois
+a condição será verificada.
+</p>
+
+<hr>
+
+<h2>Comparação entre as estruturas</h2>
+
+<ul>
+<li><strong>for</strong> → usado quando sabemos o número de repetições</li>
+<li><strong>while</strong> → usado quando a repetição depende de uma condição</li>
+<li><strong>do while</strong> → garante pelo menos uma execução</li>
+</ul>
+
+<hr>
+
+<h2>Exemplo aplicado</h2>
+
+<p>
+O programa abaixo exibe a tabuada do número 5:
+</p>
+
+<pre>
+<code>
+public class Tabuada {
+
+    public static void main(String[] args) {
+
+        for(int i = 1; i <= 10; i++){
+
+            System.out.println("5 x " + i + " = " + (5 * i));
+
+        }
+
+    }
+
+}
+</code>
+</pre>
+
+<hr>
+
+<h2>Atividade</h2>
+
+<p>
+Crie um programa em Java que utilize uma estrutura de repetição
+para exibir os números de 1 até 10.
+</p>
+
+<p>
+Depois modifique o programa para exibir apenas os números pares.
+</p>
+
+</main>
+
+</div>
+<footer class="footer">
+        <img src="../imagens/base_site_logos-GPTW.png" alt="Selo GPTW">
+    </footer>
+<script src="js/menu.js"></script>
+</body>
+</html>

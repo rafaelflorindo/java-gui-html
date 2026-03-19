@@ -3,127 +3,65 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Variáveis em Java</title>
-
+    <title>Ambiente de Ensino</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 
 <body>
 
+    <header>
+        <h1>Ambiente de Ensino de Programação</h1>
+        <p>Escolha uma linguagem para iniciar seus estudos</p>
+    </header>
+
+    <!-- MENU GLOBAL -->
+    <div id="menu"></div>
+
     <div class="container">
+        <h2>Linguagens disponíveis</h2>
 
-        <div id="menu"></div>
+        <div class="cards">
+            <div class="card" onclick="location.href='html5/index.html'">
+                <h3>HTML 5 🚧</h3>
+                <p>Linguagem de marcação Semantica</p>
+            </div>
+            <div class="card" onclick="location.href='css3/index.html'">
+                <h3>CSS 3 🚧</h3>
+                <p>Estilização de Páginas</p>
+            </div>
+            <div class="card" onclick="location.href='./projeto-ensino2026/java/index.html'">
+                <h3>Java</h3>
+                <p>POO e lógica de programação</p>
+            </div>
 
-        <main class="conteudo">
+            <div class="card" onclick="location.href='php/index.html'">
+                <h3>PHP 🚧</h3>
+                <p>Desenvolvimento Web</p>
+            </div>
 
-            <h1>Introdução ao Java</h1>
+            <div class="card" onclick="location.href='node/index.html'">
+                <h3>Node.js 🚧</h3>
+                <p>Backend com JavaScript</p>
+            </div>
 
-            <p>
-                Java é uma linguagem de programação orientada a objetos amplamente utilizada
-                no desenvolvimento de sistemas corporativos, aplicações web, aplicativos Android
-                e diversos outros tipos de software.
-            </p>
+            <div class="card" onclick="location.href='react/index.html'">
+                <h3>React 🚧</h3>
+                <p>Interfaces modernas</p>
+            </div>
 
-            <p>
-                A linguagem foi criada pela empresa Sun Microsystems em 1995 e atualmente é
-                mantida pela Oracle. Uma das principais características do Java é sua
-                portabilidade, resumida na famosa frase:
-            </p>
+            <div class="card" onclick="location.href='reactNative/index.html'">
+                <h3>React Native 🚧</h3>
+                <p>Apps mobile</p>
+            </div>
 
-            <p><strong>"Write once, run anywhere"</strong> (Escreva uma vez, execute em qualquer lugar).</p>
-
-            <h2>Características da Linguagem Java</h2>
-
-            <ul>
-                <li>Orientação a Objetos</li>
-                <li>Portabilidade entre sistemas operacionais</li>
-                <li>Grande comunidade de desenvolvedores</li>
-                <li>Amplamente utilizada no mercado</li>
-                <li>Possui vasta documentação e bibliotecas</li>
-            </ul>
-
-            <h2>Primeiro Programa em Java</h2>
-
-            <p>
-                Tradicionalmente, o primeiro programa em qualquer linguagem é o
-                <strong>Hello World</strong>. Ele serve para demonstrar a estrutura básica de um
-                programa e verificar se o ambiente está configurado corretamente.
-            </p>
-
-            <pre>
-<code>
-public class HelloWorld {
-
-    public static void main(String[] args) {
-
-        System.out.println("Olá Mundo");
-
-    }
-
-}
-</code>
-</pre>
-
-            <h2>Explicação do Código</h2>
-
-            <p><strong>public class HelloWorld</strong></p>
-            <p>
-                Define uma classe chamada <strong>HelloWorld</strong>. Em Java, todo programa
-                precisa estar dentro de uma classe.
-            </p>
-
-            <p><strong>public static void main(String[] args)</strong></p>
-            <p>
-                Este é o método principal do programa. É por onde a execução do programa
-                começa.
-            </p>
-
-            <p><strong>System.out.println()</strong></p>
-            <p>
-                Este comando é utilizado para exibir mensagens no console do programa.
-            </p>
-
-            <h2>Outro Exemplo</h2>
-
-            <p>
-                Podemos utilizar o <strong>println</strong> para imprimir diversas mensagens:
-            </p>
-
-            <pre>
-<code>
-public class Mensagem {
-
-    public static void main(String[] args) {
-
-        System.out.println("Bem-vindo ao estudo de Java!");
-        System.out.println("Esta é a sua primeira aplicação.");
-
-    }
-
-}
-</code>
-</pre>
-
-            <h2>Atividade</h2>
-
-            <p>
-                Crie um programa em Java que exiba no console:
-            </p>
-
-            <ul>
-                <li>Seu nome</li>
-                <li>Seu curso</li>
-                <li>A frase: "Estou aprendendo Java"</li>
-            </ul>
-
-        </main>
-
+        </div>
     </div>
-    <footer class="footer">
-        <img src="imagens/base_site_logos-GPTW.png" alt="Selo GPTW">
-    </footer>
-    <script src="js/menu.js"></script>
+
+
+    <div id="footer"></div>
+    <script src="js/footer.js"></script>
+    <script src="js/menu-global.js"></script>
 
 </body>
 

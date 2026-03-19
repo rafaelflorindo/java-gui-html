@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Variáveis em Java</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Ambiente de Ensino de Programação</h1>
+        <p>Linguagem Java</p>
+    </header>
+    <div class="container">
+
+        <div id="menu"></div>
+
+        <main class="conteudo">
+
+            <h1>Variáveis em Java</h1>
+
+            <p>
+                Variáveis são utilizadas para armazenar dados durante a execução de um programa.
+                Cada variável possui um nome, um tipo de dado e um valor armazenado.
+            </p>
+
+            <p>
+                Em Java, antes de utilizar uma variável, é necessário declará-la informando
+                o tipo de dado que ela irá armazenar.
+            </p>
+
+            <h2>Estrutura de uma variável</h2>
+
+            <pre>
+<code>
+tipo nomeDaVariavel = valor;
+</code>
+</pre>
+
+            <p><strong>Exemplo:</strong></p>
+
+            <pre>
+<code>
+int idade = 20;
+</code>
+</pre>
+
+            <ul>
+                <li><strong>int</strong> → tipo da variável</li>
+                <li><strong>idade</strong> → nome da variável</li>
+                <li><strong>20</strong> → valor armazenado</li>
+            </ul>
+
+            <hr>
+
+            <h2>Tipos de dados em Java</h2>
+
+            <p>
+                Em Java, os tipos de dados são divididos em duas categorias principais:
+            </p>
+
+            <h3>Tipos Primitivos</h3>
+
+            <p>
+                São tipos básicos que armazenam valores diretamente na memória.
+            </p>
+
+            <ul>
+                <li><strong>int</strong> → números inteiros</li>
+                <li><strong>double</strong> → números decimais</li>
+                <li><strong>char</strong> → um único caractere</li>
+                <li><strong>boolean</strong> → verdadeiro ou falso</li>
+            </ul>
+
+            <h3>Tipos de Referência (Não Primitivos)</h3>
+
+            <p>
+                São tipos que armazenam uma referência para um objeto na memória.
+            </p>
+
+            <ul>
+                <li><strong>String</strong> → textos</li>
+                <li><strong>Arrays</strong></li>
+                <li><strong>Objetos (Classes)</strong></li>
+            </ul>
+
+            <p>
+                Os tipos de referência serão estudados em detalhes em seções específicas,
+                onde veremos como trabalhar com <strong>arrays</strong> e <strong>classes</strong>.
+            </p>
+
+            <hr>
+
+            <h2>Exemplo de uso de variáveis</h2>
+
+            <pre>
+<code>
+public class Exemplo {
+
+    public static void main(String[] args) {
+
+        int idade = 20;
+        double salario = 1500.50;
+        String nome = "Maria";
+
+        System.out.println(nome);
+
+    }
+
+}
+</code>
+</pre>
+
+            <h2>Explicação do código</h2>
+
+            <p>
+                Neste exemplo foram declaradas três variáveis:
+            </p>
+
+            <ul>
+                <li><strong>idade</strong> → armazena um número inteiro (tipo primitivo)</li>
+                <li><strong>salario</strong> → armazena um número decimal (tipo primitivo)</li>
+                <li><strong>nome</strong> → armazena um texto (tipo de referência)</li>
+            </ul>
+
+            <p>
+                O comando abaixo exibe o valor da variável <strong>nome</strong> no console:
+            </p>
+
+            <pre>
+<code>
+System.out.println(nome);
+</code>
+</pre>
+
+            <h2>Outro exemplo</h2>
+
+            <pre>
+<code>
+public class DadosAluno {
+
+    public static void main(String[] args) {
+
+        String nome = "Carlos";
+        int idade = 22;
+        double nota = 8.5;
+
+        System.out.println("Aluno: " + nome);
+        System.out.println("Idade: " + idade);
+        System.out.println("Nota: " + nota);
+
+    }
+
+}
+</code>
+</pre>
+
+            <h2>Boas práticas ao nomear variáveis</h2>
+
+            <ul>
+                <li>Utilizar nomes que representem o conteúdo da variável</li>
+                <li>Evitar nomes muito curtos</li>
+                <li>Utilizar padrão <strong>camelCase</strong></li>
+            </ul>
+
+            <p><strong>Exemplos:</strong></p>
+
+            <pre>
+<code>
+int idadeAluno;
+double valorProduto;
+String nomeCliente;
+</code>
+</pre>
+
+            <h2>Atividade</h2>
+
+            <p>
+                Crie um programa em Java que declare as seguintes variáveis:
+            </p>
+
+            <ul>
+                <li>Nome do aluno</li>
+                <li>Idade</li>
+                <li>Altura</li>
+            </ul>
+
+            <p>
+                Depois exiba todas essas informações utilizando <strong>System.out.println()</strong>.
+            </p>
+
+        </main>
+
+    </div>
+
+    <footer class="footer">
+        <img src="../imagens/base_site_logos-GPTW.png" alt="Selo GPTW">
+    </footer>
+
+    <script src="../js/menu.js"></script>
+</body>
+
+</html>
