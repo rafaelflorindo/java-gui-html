@@ -2,59 +2,62 @@
 <html lang="pt-br">
 
 <head>
-<meta charset="UTF-8">
-<title>Entrada de Dados com Scanner</title>
-<link rel="stylesheet" href="../css/style.css">
+    <meta charset="UTF-8">
+    <title>Entrada de Dados com Scanner</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
+    <header>
+        <h1>Ambiente de Ensino de Programação</h1>
+        <p>Linguagem Java</p>
+    </header>
+    <div class="container">
 
-<div class="container">
+        <div id="menu"></div>
 
-<div id="menu"></div>
+        <main class="conteudo">
 
-<main class="conteudo">
+            <h1>Entrada de Dados com Scanner</h1>
 
-<h1>Entrada de Dados com Scanner</h1>
+            <p>
+                Em Java, para receber dados do usuário pelo teclado, utilizamos a classe
+                <strong>Scanner</strong>.
+            </p>
 
-<p>
-Em Java, para receber dados do usuário pelo teclado, utilizamos a classe
-<strong>Scanner</strong>.
-</p>
+            <p>
+                Ela permite ler diferentes tipos de dados, como números, textos e valores booleanos.
+            </p>
 
-<p>
-Ela permite ler diferentes tipos de dados, como números, textos e valores booleanos.
-</p>
+            <hr>
 
-<hr>
+            <h2>Importando a classe</h2>
 
-<h2>Importando a classe</h2>
-
-<pre>
+            <pre>
 <code>
 import java.util.Scanner;
 </code>
 </pre>
 
-<hr>
+            <hr>
 
-<h2>Criando o Scanner</h2>
+            <h2>Criando o Scanner</h2>
 
-<pre>
+            <pre>
 <code>
 Scanner scanner = new Scanner(System.in);
 </code>
 </pre>
 
-<p>
-O <strong>System.in</strong> indica que os dados serão lidos do teclado.
-</p>
+            <p>
+                O <strong>System.in</strong> indica que os dados serão lidos do teclado.
+            </p>
 
-<hr>
+            <hr>
 
-<h2>Lendo diferentes tipos de dados</h2>
+            <h2>Lendo diferentes tipos de dados</h2>
 
-<pre>
+            <pre>
 <code>
 import java.util.Scanner;
 
@@ -94,68 +97,67 @@ public class EntradaDados {
 </code>
 </pre>
 
-<hr>
+            <hr>
 
-<h2>Explicação dos métodos</h2>
+            <h2>Explicação dos métodos</h2>
 
-<ul>
-<li><strong>nextInt()</strong> → lê números inteiros</li>
-<li><strong>nextDouble()</strong> → lê números decimais</li>
-<li><strong>next()</strong> → lê uma palavra</li>
-<li><strong>nextLine()</strong> → lê uma linha completa</li>
-<li><strong>nextBoolean()</strong> → lê verdadeiro ou falso</li>
-</ul>
+            <ul>
+                <li><strong>nextInt()</strong> → lê números inteiros</li>
+                <li><strong>nextDouble()</strong> → lê números decimais</li>
+                <li><strong>next()</strong> → lê uma palavra</li>
+                <li><strong>nextLine()</strong> → lê uma linha completa</li>
+                <li><strong>nextBoolean()</strong> → lê verdadeiro ou falso</li>
+            </ul>
 
-<hr>
+            <hr>
 
-<h2>Atenção ao nextLine()</h2>
+            <h2>Atenção ao nextLine()</h2>
 
-<p>
-Após utilizar métodos como <strong>nextInt()</strong> ou <strong>nextDouble()</strong>,
-é necessário utilizar um <strong>nextLine()</strong> para limpar o buffer do teclado.
-</p>
+            <p>
+                Após utilizar métodos como <strong>nextInt()</strong> ou <strong>nextDouble()</strong>,
+                é necessário utilizar um <strong>nextLine()</strong> para limpar o buffer do teclado.
+            </p>
 
-<p>
-Caso isso não seja feito, o próximo <strong>nextLine()</strong> pode ser ignorado.
-</p>
+            <p>
+                Caso isso não seja feito, o próximo <strong>nextLine()</strong> pode ser ignorado.
+            </p>
 
-<hr>
+            <hr>
 
-<h2>Boas práticas</h2>
+            <h2>Boas práticas</h2>
 
-<ul>
-<li>Sempre informar ao usuário o que deve ser digitado</li>
-<li>Utilizar mensagens claras no console</li>
-<li>Fechar o Scanner com <strong>close()</strong></li>
-</ul>
+            <ul>
+                <li>Sempre informar ao usuário o que deve ser digitado</li>
+                <li>Utilizar mensagens claras no console</li>
+                <li>Fechar o Scanner com <strong>close()</strong></li>
+            </ul>
 
-<hr>
+            <hr>
 
-<h2>Atividade</h2>
+            <h2>Atividade</h2>
 
-<p>
-Crie um programa que solicite ao usuário:
-</p>
+            <p>
+                Crie um programa que solicite ao usuário:
+            </p>
 
-<ul>
-<li>Nome</li>
-<li>Idade</li>
-<li>Altura</li>
-<li>Se está matriculado (true/false)</li>
-</ul>
+            <ul>
+                <li>Nome</li>
+                <li>Idade</li>
+                <li>Altura</li>
+                <li>Se está matriculado (true/false)</li>
+            </ul>
 
-<p>
-Depois exiba todas as informações no console.
-</p>
+            <p>
+                Depois exiba todas as informações no console.
+            </p>
 
-</main>
+        </main>
 
-</div>
+    </div>
 
-<footer class="footer">
-    <img src="../imagens/base_site_logos-GPTW.png" alt="Selo GPTW">
-</footer>
-
-<script src="../js/menu.js"></script>
+    <div id="footer"></div>
+    <script src="..js/footer.js"></script>
+    <script src="..js/menu.js"></script>
 </body>
+
 </html>
