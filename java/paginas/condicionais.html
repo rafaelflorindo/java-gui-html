@@ -2,59 +2,63 @@
 <html lang="pt-br">
 
 <head>
-<meta charset="UTF-8">
-<title>Condicionais em Java</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>Condicionais em Java</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
+    <header>
+        <h1>Ambiente de Ensino de Programação</h1>
+        <p>Linguagem Java</p>
+    </header>
+    <div class="container">
 
-<div class="container">
+        <div id="menu"></div>
 
-<div id="menu"></div>
+        <main class="conteudo">
 
-<main class="conteudo">
+            <h1>Estruturas Condicionais em Java</h1>
 
-<h1>Estruturas Condicionais em Java</h1>
+            <p>
+                As estruturas condicionais permitem que o programa tome decisões
+                durante a execução. Dependendo do resultado de uma condição lógica,
+                diferentes blocos de código podem ser executados.
+            </p>
 
-<p>
-As estruturas condicionais permitem que o programa tome decisões
-durante a execução. Dependendo do resultado de uma condição lógica,
-diferentes blocos de código podem ser executados.
-</p>
+            <p>
+                Essas estruturas são muito utilizadas quando precisamos verificar
+                situações como idade, notas, valores ou qualquer outra condição.
+            </p>
 
-<p>
-Essas estruturas são muito utilizadas quando precisamos verificar
-situações como idade, notas, valores ou qualquer outra condição.
-</p>
+            <hr>
 
-<hr>
+            <h2>Operadores relacionais</h2>
 
-<h2>Operadores relacionais</h2>
+            <p>
+                Para criar condições utilizamos operadores relacionais:
+            </p>
 
-<p>
-Para criar condições utilizamos operadores relacionais:
-</p>
+            <ul>
+                <li><strong>==</strong> igual</li>
+                <li><strong>!=</strong> diferente</li>
+                <li><strong>&gt;</strong> maior que</li>
+                <li><strong>&lt;</strong> menor que</li>
+                <li><strong>&gt;=</strong> maior ou igual</li>
+                <li><strong>&lt;=</strong> menor ou igual</li>
+            </ul>
 
-<ul>
-<li><strong>==</strong> igual</li>
-<li><strong>!=</strong> diferente</li>
-<li><strong>&gt;</strong> maior que</li>
-<li><strong>&lt;</strong> menor que</li>
-<li><strong>&gt;=</strong> maior ou igual</li>
-<li><strong>&lt;=</strong> menor ou igual</li>
-</ul>
+            <hr>
 
-<hr>
+            <h2>Exemplo com if</h2>
 
-<h2>Exemplo com if</h2>
+            <p>
+                A estrutura <strong>if</strong> executa um bloco de código somente
+                se a condição for verdadeira.
+            </p>
 
-<p>
-A estrutura <strong>if</strong> executa um bloco de código somente
-se a condição for verdadeira.
-</p>
-
-<pre>
+            <pre>
 <code>
 public class Exemplo {
 
@@ -72,21 +76,21 @@ public class Exemplo {
 </code>
 </pre>
 
-<p>
-Nesse exemplo, a mensagem será exibida apenas se a idade
-for maior ou igual a 18.
-</p>
+            <p>
+                Nesse exemplo, a mensagem será exibida apenas se a idade
+                for maior ou igual a 18.
+            </p>
 
-<hr>
+            <hr>
 
-<h2>Exemplo com if / else</h2>
+            <h2>Exemplo com if / else</h2>
 
-<p>
-A estrutura <strong>else</strong> permite executar um bloco de código
-quando a condição do <strong>if</strong> for falsa.
-</p>
+            <p>
+                A estrutura <strong>else</strong> permite executar um bloco de código
+                quando a condição do <strong>if</strong> for falsa.
+            </p>
 
-<pre>
+            <pre>
 <code>
 int idade = 16;
 
@@ -98,21 +102,21 @@ if(idade >= 18){
 </code>
 </pre>
 
-<p>
-Se a condição não for verdadeira, o programa executa o bloco
-de código dentro do <strong>else</strong>.
-</p>
+            <p>
+                Se a condição não for verdadeira, o programa executa o bloco
+                de código dentro do <strong>else</strong>.
+            </p>
 
-<hr>
+            <hr>
 
-<h2>Exemplo com if / else if</h2>
+            <h2>Exemplo com if / else if</h2>
 
-<p>
-Quando precisamos verificar várias condições, utilizamos
-<strong>else if</strong>.
-</p>
+            <p>
+                Quando precisamos verificar várias condições, utilizamos
+                <strong>else if</strong>.
+            </p>
 
-<pre>
+            <pre>
 <code>
 int nota = 7;
 
@@ -126,26 +130,26 @@ if(nota >= 7){
 </code>
 </pre>
 
-<p>
-Nesse exemplo:
-</p>
+            <p>
+                Nesse exemplo:
+            </p>
 
-<ul>
-<li>nota maior ou igual a 7 → Aprovado</li>
-<li>nota maior ou igual a 5 → Recuperação</li>
-<li>caso contrário → Reprovado</li>
-</ul>
+            <ul>
+                <li>nota maior ou igual a 7 → Aprovado</li>
+                <li>nota maior ou igual a 5 → Recuperação</li>
+                <li>caso contrário → Reprovado</li>
+            </ul>
 
-<hr>
+            <hr>
 
-<h2>Estrutura switch</h2>
+            <h2>Estrutura switch</h2>
 
-<p>
-O <strong>switch</strong> é utilizado quando precisamos comparar
-uma variável com vários valores possíveis.
-</p>
+            <p>
+                O <strong>switch</strong> é utilizado quando precisamos comparar
+                uma variável com vários valores possíveis.
+            </p>
 
-<pre>
+            <pre>
 <code>
 int dia = 3;
 
@@ -170,28 +174,28 @@ switch(dia){
 </code>
 </pre>
 
-<p>
-A palavra <strong>break</strong> interrompe a execução do bloco
-dentro do switch.
-</p>
+            <p>
+                A palavra <strong>break</strong> interrompe a execução do bloco
+                dentro do switch.
+            </p>
 
-<hr>
+            <hr>
 
-<h2>Operadores lógicos</h2>
+            <h2>Operadores lógicos</h2>
 
-<p>
-Também podemos combinar condições utilizando operadores lógicos:
-</p>
+            <p>
+                Também podemos combinar condições utilizando operadores lógicos:
+            </p>
 
-<ul>
-<li><strong>&amp;&amp;</strong> → E lógico</li>
-<li><strong>||</strong> → OU lógico</li>
-<li><strong>!</strong> → NÃO lógico</li>
-</ul>
+            <ul>
+                <li><strong>&amp;&amp;</strong> → E lógico</li>
+                <li><strong>||</strong> → OU lógico</li>
+                <li><strong>!</strong> → NÃO lógico</li>
+            </ul>
 
-<p><strong>Exemplo:</strong></p>
+            <p><strong>Exemplo:</strong></p>
 
-<pre>
+            <pre>
 <code>
 int idade = 20;
 boolean possuiCarteira = true;
@@ -202,27 +206,27 @@ if(idade >= 18 && possuiCarteira){
 </code>
 </pre>
 
-<hr>
+            <hr>
 
-<h2>Atividade</h2>
+            <h2>Atividade</h2>
 
-<p>
-Crie um programa em Java que:
-</p>
+            <p>
+                Crie um programa em Java que:
+            </p>
 
-<ul>
-<li>Declare uma variável chamada <strong>nota</strong></li>
-<li>Se a nota for maior ou igual a 7 → exibir "Aprovado"</li>
-<li>Se a nota for maior ou igual a 5 → exibir "Recuperação"</li>
-<li>Caso contrário → exibir "Reprovado"</li>
-</ul>
+            <ul>
+                <li>Declare uma variável chamada <strong>nota</strong></li>
+                <li>Se a nota for maior ou igual a 7 → exibir "Aprovado"</li>
+                <li>Se a nota for maior ou igual a 5 → exibir "Recuperação"</li>
+                <li>Caso contrário → exibir "Reprovado"</li>
+            </ul>
+        </main>
 
-</main>
+    </div>
 
-</div>
-<footer class="footer">
-        <img src="../imagens/base_site_logos-GPTW.png" alt="Selo GPTW">
-    </footer>
-<script src="js/menu.js"></script>
+    <div id="footer"></div>
+    <script src="../js/footer.js"></script>
+    <script src="../js/menu.js"></script>
 </body>
+
 </html>

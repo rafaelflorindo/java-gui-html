@@ -2,65 +2,69 @@
 <html lang="pt-br">
 
 <head>
-<meta charset="UTF-8">
-<title>Encapsulamento</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>Encapsulamento</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
+    <header>
+        <h1>Ambiente de Ensino de Programação</h1>
+        <p>Linguagem Java</p>
+    </header>
+    <div class="container">
 
-<div class="container">
+        <div id="menu"></div>
 
-<div id="menu"></div>
+        <main class="conteudo">
 
-<main class="conteudo">
+            <h1>Encapsulamento</h1>
 
-<h1>Encapsulamento</h1>
+            <p>
+                Encapsulamento é um dos pilares da Programação Orientada a Objetos.
+                Ele consiste em proteger os atributos de uma classe, permitindo que
+                eles sejam acessados ou modificados apenas através de métodos.
+            </p>
 
-<p>
-Encapsulamento é um dos pilares da Programação Orientada a Objetos.
-Ele consiste em proteger os atributos de uma classe, permitindo que
-eles sejam acessados ou modificados apenas através de métodos.
-</p>
+            <p>
+                Isso ajuda a manter a segurança e a organização do código, evitando
+                que outras partes do programa alterem dados de forma indevida.
+            </p>
 
-<p>
-Isso ajuda a manter a segurança e a organização do código, evitando
-que outras partes do programa alterem dados de forma indevida.
-</p>
+            <hr>
 
-<hr>
+            <h2>Atributos privados</h2>
 
-<h2>Atributos privados</h2>
+            <p>
+                Para proteger os atributos utilizamos o modificador de acesso
+                <strong>private</strong>.
+            </p>
 
-<p>
-Para proteger os atributos utilizamos o modificador de acesso
-<strong>private</strong>.
-</p>
+            <p>
+                Quando um atributo é declarado como <strong>private</strong>, ele
+                só pode ser acessado dentro da própria classe.
+            </p>
 
-<p>
-Quando um atributo é declarado como <strong>private</strong>, ele
-só pode ser acessado dentro da própria classe.
-</p>
+            <hr>
 
-<hr>
+            <h2>Métodos getters e setters</h2>
 
-<h2>Métodos getters e setters</h2>
+            <p>
+                Para acessar ou modificar os atributos privados, utilizamos métodos
+                especiais chamados:
+            </p>
 
-<p>
-Para acessar ou modificar os atributos privados, utilizamos métodos
-especiais chamados:
-</p>
+            <ul>
+                <li><strong>get</strong> → utilizado para obter o valor do atributo</li>
+                <li><strong>set</strong> → utilizado para alterar o valor do atributo</li>
+            </ul>
 
-<ul>
-<li><strong>get</strong> → utilizado para obter o valor do atributo</li>
-<li><strong>set</strong> → utilizado para alterar o valor do atributo</li>
-</ul>
+            <hr>
 
-<hr>
+            <h2>Exemplo</h2>
 
-<h2>Exemplo</h2>
-
-<pre>
+            <pre>
 <code>
 public class Pessoa {
 
@@ -78,24 +82,24 @@ public class Pessoa {
 </code>
 </pre>
 
-<h2>Explicação do código</h2>
+            <h2>Explicação do código</h2>
 
-<ul>
-<li><strong>private String nome</strong> → atributo protegido</li>
-<li><strong>getNome()</strong> → retorna o valor do atributo</li>
-<li><strong>setNome()</strong> → altera o valor do atributo</li>
-</ul>
+            <ul>
+                <li><strong>private String nome</strong> → atributo protegido</li>
+                <li><strong>getNome()</strong> → retorna o valor do atributo</li>
+                <li><strong>setNome()</strong> → altera o valor do atributo</li>
+            </ul>
 
-<p>
-A palavra-chave <strong>this</strong> é utilizada para indicar que
-estamos acessando o atributo da própria classe.
-</p>
+            <p>
+                A palavra-chave <strong>this</strong> é utilizada para indicar que
+                estamos acessando o atributo da própria classe.
+            </p>
 
-<hr>
+            <hr>
 
-<h2>Exemplo completo</h2>
+            <h2>Exemplo completo</h2>
 
-<pre>
+            <pre>
 <code>
 class Pessoa {
 
@@ -127,61 +131,62 @@ public class Teste {
 </code>
 </pre>
 
-<h2>Explicação</h2>
+            <h2>Explicação</h2>
 
-<p>
-Neste exemplo, não podemos acessar diretamente o atributo
-<strong>nome</strong>, pois ele é <strong>private</strong>.
-</p>
+            <p>
+                Neste exemplo, não podemos acessar diretamente o atributo
+                <strong>nome</strong>, pois ele é <strong>private</strong>.
+            </p>
 
-<p>
-Por isso utilizamos os métodos:
-</p>
+            <p>
+                Por isso utilizamos os métodos:
+            </p>
 
-<ul>
-<li><strong>setNome()</strong> para definir o valor</li>
-<li><strong>getNome()</strong> para acessar o valor</li>
-</ul>
+            <ul>
+                <li><strong>setNome()</strong> para definir o valor</li>
+                <li><strong>getNome()</strong> para acessar o valor</li>
+            </ul>
 
-<hr>
+            <hr>
 
-<h2>Vantagens do Encapsulamento</h2>
+            <h2>Vantagens do Encapsulamento</h2>
 
-<ul>
-<li>Protege os dados da classe</li>
-<li>Evita alterações indevidas</li>
-<li>Melhora a organização do código</li>
-<li>Facilita a manutenção do sistema</li>
-</ul>
+            <ul>
+                <li>Protege os dados da classe</li>
+                <li>Evita alterações indevidas</li>
+                <li>Melhora a organização do código</li>
+                <li>Facilita a manutenção do sistema</li>
+            </ul>
 
-<hr>
+            <hr>
 
-<h2>Atividade</h2>
+            <h2>Atividade</h2>
 
-<p>
-Crie uma classe chamada <strong>Produto</strong> com os seguintes atributos:
-</p>
+            <p>
+                Crie uma classe chamada <strong>Produto</strong> com os seguintes atributos:
+            </p>
 
-<ul>
-<li>nome</li>
-<li>preco</li>
-</ul>
+            <ul>
+                <li>nome</li>
+                <li>preco</li>
+            </ul>
 
-<p>
-Os atributos devem ser <strong>private</strong>.
-</p>
+            <p>
+                Os atributos devem ser <strong>private</strong>.
+            </p>
 
-<p>
-Crie métodos <strong>get</strong> e <strong>set</strong> para cada atributo
-e depois crie um objeto da classe para testar o funcionamento.
-</p>
+            <p>
+                Crie métodos <strong>get</strong> e <strong>set</strong> para cada atributo
+                e depois crie um objeto da classe para testar o funcionamento.
+            </p>
 
-</main>
+        </main>
 
-</div>
-<footer class="footer">
-        <img src="../imagens/base_site_logos-GPTW.png" alt="Selo GPTW">
-    </footer>
-<script src="js/menu.js"></script>
+    </div>
+
+    <div id="footer"></div>
+    <script src="../js/footer.js"></script>
+    <script src="../js/menu.js"></script>
 </body>
+
 </html>

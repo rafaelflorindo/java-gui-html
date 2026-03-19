@@ -2,45 +2,49 @@
 <html lang="pt-br">
 
 <head>
-<meta charset="UTF-8">
-<title>Polimorfismo</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>Polimorfismo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
+    <header>
+        <h1>Ambiente de Ensino de Programação</h1>
+        <p>Linguagem Java</p>
+    </header>
+    <div class="container">
 
-<div class="container">
+        <div id="menu"></div>
 
-<div id="menu"></div>
+        <main class="conteudo">
 
-<main class="conteudo">
+            <h1>Polimorfismo</h1>
 
-<h1>Polimorfismo</h1>
+            <p>
+                Polimorfismo é um dos pilares da Programação Orientada a Objetos.
+                A palavra significa <strong>"muitas formas"</strong>.
+            </p>
 
-<p>
-Polimorfismo é um dos pilares da Programação Orientada a Objetos.
-A palavra significa <strong>"muitas formas"</strong>.
-</p>
+            <p>
+                Na prática, o polimorfismo permite que um mesmo método tenha
+                comportamentos diferentes dependendo da classe que o implementa.
+            </p>
 
-<p>
-Na prática, o polimorfismo permite que um mesmo método tenha
-comportamentos diferentes dependendo da classe que o implementa.
-</p>
+            <p>
+                Isso ocorre geralmente quando utilizamos <strong>herança</strong> e
+                <strong>sobrescrita de métodos</strong>.
+            </p>
 
-<p>
-Isso ocorre geralmente quando utilizamos <strong>herança</strong> e
-<strong>sobrescrita de métodos</strong>.
-</p>
+            <hr>
 
-<hr>
+            <h2>Classe base</h2>
 
-<h2>Classe base</h2>
+            <p>
+                Primeiro criamos uma classe genérica chamada <strong>Animal</strong>.
+            </p>
 
-<p>
-Primeiro criamos uma classe genérica chamada <strong>Animal</strong>.
-</p>
-
-<pre>
+            <pre>
 <code>
 class Animal{
 
@@ -52,16 +56,16 @@ class Animal{
 </code>
 </pre>
 
-<hr>
+            <hr>
 
-<h2>Classe derivada</h2>
+            <h2>Classe derivada</h2>
 
-<p>
-Agora criamos uma classe <strong>Cachorro</strong> que herda da classe
-<strong>Animal</strong> e sobrescreve o método <strong>emitirSom()</strong>.
-</p>
+            <p>
+                Agora criamos uma classe <strong>Cachorro</strong> que herda da classe
+                <strong>Animal</strong> e sobrescreve o método <strong>emitirSom()</strong>.
+            </p>
 
-<pre>
+            <pre>
 <code>
 class Cachorro extends Animal{
 
@@ -73,11 +77,11 @@ class Cachorro extends Animal{
 </code>
 </pre>
 
-<hr>
+            <hr>
 
-<h2>Exemplo completo</h2>
+            <h2>Exemplo completo</h2>
 
-<pre>
+            <pre>
 <code>
 class Animal{
 
@@ -111,43 +115,43 @@ public class Teste{
 </code>
 </pre>
 
-<hr>
+            <hr>
 
-<h2>Explicação</h2>
+            <h2>Explicação</h2>
 
-<p>
-Observe a linha abaixo:
-</p>
+            <p>
+                Observe a linha abaixo:
+            </p>
 
-<pre>
+            <pre>
 <code>
 Animal a2 = new Cachorro();
 </code>
 </pre>
 
-<p>
-A variável é do tipo <strong>Animal</strong>, mas o objeto criado é do
-tipo <strong>Cachorro</strong>.
-</p>
+            <p>
+                A variável é do tipo <strong>Animal</strong>, mas o objeto criado é do
+                tipo <strong>Cachorro</strong>.
+            </p>
 
-<p>
-Quando o método <strong>emitirSom()</strong> é chamado, o Java executa
-a versão do método da classe <strong>Cachorro</strong>.
-</p>
+            <p>
+                Quando o método <strong>emitirSom()</strong> é chamado, o Java executa
+                a versão do método da classe <strong>Cachorro</strong>.
+            </p>
 
-<p>
-Isso é o que chamamos de <strong>polimorfismo</strong>.
-</p>
+            <p>
+                Isso é o que chamamos de <strong>polimorfismo</strong>.
+            </p>
 
-<hr>
+            <hr>
 
-<h2>Outro exemplo</h2>
+            <h2>Outro exemplo</h2>
 
-<p>
-Podemos criar outras classes que também herdam de <strong>Animal</strong>.
-</p>
+            <p>
+                Podemos criar outras classes que também herdam de <strong>Animal</strong>.
+            </p>
 
-<pre>
+            <pre>
 <code>
 class Gato extends Animal{
 
@@ -159,51 +163,52 @@ class Gato extends Animal{
 </code>
 </pre>
 
-<p>
-Agora diferentes objetos podem ter comportamentos diferentes
-utilizando o mesmo método.
-</p>
+            <p>
+                Agora diferentes objetos podem ter comportamentos diferentes
+                utilizando o mesmo método.
+            </p>
 
-<hr>
+            <hr>
 
-<h2>Resumo</h2>
+            <h2>Resumo</h2>
 
-<ul>
-<li>Polimorfismo significa "muitas formas"</li>
-<li>Permite que métodos tenham comportamentos diferentes</li>
-<li>Normalmente ocorre com herança</li>
-<li>Utiliza sobrescrita de métodos</li>
-</ul>
+            <ul>
+                <li>Polimorfismo significa "muitas formas"</li>
+                <li>Permite que métodos tenham comportamentos diferentes</li>
+                <li>Normalmente ocorre com herança</li>
+                <li>Utiliza sobrescrita de métodos</li>
+            </ul>
 
-<hr>
+            <hr>
 
-<h2>Atividade</h2>
+            <h2>Atividade</h2>
 
-<p>
-Crie um programa com a classe <strong>Veiculo</strong> contendo o método
-<strong>mover()</strong>.
-</p>
+            <p>
+                Crie um programa com a classe <strong>Veiculo</strong> contendo o método
+                <strong>mover()</strong>.
+            </p>
 
-<p>
-Depois crie duas classes que herdam de Veiculo:
-</p>
+            <p>
+                Depois crie duas classes que herdam de Veiculo:
+            </p>
 
-<ul>
-<li>Carro</li>
-<li>Moto</li>
-</ul>
+            <ul>
+                <li>Carro</li>
+                <li>Moto</li>
+            </ul>
 
-<p>
-Cada classe deve sobrescrever o método <strong>mover()</strong>
-exibindo uma mensagem diferente.
-</p>
+            <p>
+                Cada classe deve sobrescrever o método <strong>mover()</strong>
+                exibindo uma mensagem diferente.
+            </p>
 
-</main>
+        </main>
 
-</div>
-<footer class="footer">
-        <img src="../imagens/base_site_logos-GPTW.png" alt="Selo GPTW">
-    </footer>
-<script src="js/menu.js"></script>
+    </div>
+
+    <div id="footer"></div>
+    <script src="../js/footer.js"></script>
+    <script src="../js/menu.js"></script>
 </body>
+
 </html>

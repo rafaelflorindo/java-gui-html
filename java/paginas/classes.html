@@ -2,43 +2,47 @@
 <html lang="pt-br">
 
 <head>
-<meta charset="UTF-8">
-<title>Classes em Java</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>Classes em Java</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
+    <header>
+        <h1>Ambiente de Ensino de Programação</h1>
+        <p>Linguagem Java</p>
+    </header>
+    <div class="container">
 
-<div class="container">
+        <div id="menu"></div>
 
-<div id="menu"></div>
+        <main class="conteudo">
 
-<main class="conteudo">
+            <h1>Classes em Java</h1>
 
-<h1>Classes em Java</h1>
+            <p>
+                Uma classe é um modelo ou estrutura utilizada para criar objetos.
+                Ela define quais atributos (características) e métodos (ações)
+                os objetos terão.
+            </p>
 
-<p>
-Uma classe é um modelo ou estrutura utilizada para criar objetos.
-Ela define quais atributos (características) e métodos (ações)
-os objetos terão.
-</p>
+            <p>
+                Na Programação Orientada a Objetos, uma classe funciona como um
+                <strong>molde</strong> para criar vários objetos semelhantes.
+            </p>
 
-<p>
-Na Programação Orientada a Objetos, uma classe funciona como um
-<strong>molde</strong> para criar vários objetos semelhantes.
-</p>
+            <hr>
 
-<hr>
+            <h2>Atributos</h2>
 
-<h2>Atributos</h2>
+            <p>
+                Os atributos representam as características de um objeto.
+            </p>
 
-<p>
-Os atributos representam as características de um objeto.
-</p>
+            <p><strong>Exemplo:</strong></p>
 
-<p><strong>Exemplo:</strong></p>
-
-<pre>
+            <pre>
 <code>
 public class Pessoa {
 
@@ -49,26 +53,26 @@ public class Pessoa {
 </code>
 </pre>
 
-<p>
-Neste exemplo, a classe <strong>Pessoa</strong> possui dois atributos:
-</p>
+            <p>
+                Neste exemplo, a classe <strong>Pessoa</strong> possui dois atributos:
+            </p>
 
-<ul>
-<li><strong>nome</strong></li>
-<li><strong>idade</strong></li>
-</ul>
+            <ul>
+                <li><strong>nome</strong></li>
+                <li><strong>idade</strong></li>
+            </ul>
 
-<hr>
+            <hr>
 
-<h2>Métodos</h2>
+            <h2>Métodos</h2>
 
-<p>
-Os métodos representam as ações que um objeto pode realizar.
-</p>
+            <p>
+                Os métodos representam as ações que um objeto pode realizar.
+            </p>
 
-<p><strong>Exemplo:</strong></p>
+            <p><strong>Exemplo:</strong></p>
 
-<pre>
+            <pre>
 <code>
 public class Pessoa {
 
@@ -83,20 +87,20 @@ public class Pessoa {
 </code>
 </pre>
 
-<p>
-O método <strong>apresentar()</strong> exibe uma mensagem no console.
-</p>
+            <p>
+                O método <strong>apresentar()</strong> exibe uma mensagem no console.
+            </p>
 
-<hr>
+            <hr>
 
-<h2>Criando objetos</h2>
+            <h2>Criando objetos</h2>
 
-<p>
-Um objeto é uma instância de uma classe.
-Para criar um objeto utilizamos a palavra-chave <strong>new</strong>.
-</p>
+            <p>
+                Um objeto é uma instância de uma classe.
+                Para criar um objeto utilizamos a palavra-chave <strong>new</strong>.
+            </p>
 
-<pre>
+            <pre>
 <code>
 public class Teste {
 
@@ -115,51 +119,51 @@ public class Teste {
 </code>
 </pre>
 
-<h2>Explicação do exemplo</h2>
+            <h2>Explicação do exemplo</h2>
 
-<ul>
-<li><strong>Pessoa pessoa = new Pessoa()</strong> → cria um objeto da classe Pessoa</li>
-<li><strong>pessoa.nome</strong> → define o nome</li>
-<li><strong>pessoa.idade</strong> → define a idade</li>
-<li><strong>pessoa.apresentar()</strong> → executa o método da classe</li>
-</ul>
+            <ul>
+                <li><strong>Pessoa pessoa = new Pessoa()</strong> → cria um objeto da classe Pessoa</li>
+                <li><strong>pessoa.nome</strong> → define o nome</li>
+                <li><strong>pessoa.idade</strong> → define a idade</li>
+                <li><strong>pessoa.apresentar()</strong> → executa o método da classe</li>
+            </ul>
 
-<hr>
+            <hr>
 
-<h2>Resumo</h2>
+            <h2>Resumo</h2>
 
-<ul>
-<li>Classe → modelo para criar objetos</li>
-<li>Atributos → características do objeto</li>
-<li>Métodos → ações que o objeto pode executar</li>
-<li>Objeto → instância de uma classe</li>
-</ul>
+            <ul>
+                <li>Classe → modelo para criar objetos</li>
+                <li>Atributos → características do objeto</li>
+                <li>Métodos → ações que o objeto pode executar</li>
+                <li>Objeto → instância de uma classe</li>
+            </ul>
 
-<hr>
+            <hr>
 
-<h2>Atividade</h2>
+            <h2>Atividade</h2>
 
-<p>
-Crie uma classe chamada <strong>Produto</strong> contendo os seguintes atributos:
-</p>
+            <p>
+                Crie uma classe chamada <strong>Produto</strong> contendo os seguintes atributos:
+            </p>
 
-<ul>
-<li>nome</li>
-<li>preco</li>
-<li>quantidade</li>
-</ul>
+            <ul>
+                <li>nome</li>
+                <li>preco</li>
+                <li>quantidade</li>
+            </ul>
 
-<p>
-Depois crie um objeto da classe Produto e exiba os valores
-utilizando <strong>System.out.println()</strong>.
-</p>
+            <p>
+                Depois crie um objeto da classe Produto e exiba os valores
+                utilizando <strong>System.out.println()</strong>.
+            </p>
+        </main>
 
-</main>
+    </div>
 
-</div>
-<footer class="footer">
-        <img src="../imagens/base_site_logos-GPTW.png" alt="Selo GPTW">
-    </footer>
-<script src="js/menu.js"></script>
+    <div id="footer"></div>
+    <script src="../js/footer.js"></script>
+    <script src="../js/menu.js"></script>
 </body>
+
 </html>

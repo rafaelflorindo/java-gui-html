@@ -2,43 +2,47 @@
 <html lang="pt-br">
 
 <head>
-<meta charset="UTF-8">
-<title>Herança</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>Herança</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
+    <header>
+        <h1>Ambiente de Ensino de Programação</h1>
+        <p>Linguagem Java</p>
+    </header>
+    <div class="container">
 
-<div class="container">
+        <div id="menu"></div>
 
-<div id="menu"></div>
+        <main class="conteudo">
 
-<main class="conteudo">
+            <h1>Herança</h1>
 
-<h1>Herança</h1>
+            <p>
+                Herança é um mecanismo da Programação Orientada a Objetos que permite
+                que uma classe herde atributos e métodos de outra classe.
+            </p>
 
-<p>
-Herança é um mecanismo da Programação Orientada a Objetos que permite
-que uma classe herde atributos e métodos de outra classe.
-</p>
+            <p>
+                A classe que fornece as características é chamada de
+                <strong>classe pai</strong> (ou superclasse), enquanto a classe que
+                herda essas características é chamada de <strong>classe filha</strong>
+                (ou subclasse).
+            </p>
 
-<p>
-A classe que fornece as características é chamada de
-<strong>classe pai</strong> (ou superclasse), enquanto a classe que
-herda essas características é chamada de <strong>classe filha</strong>
-(ou subclasse).
-</p>
+            <p>
+                Em Java utilizamos a palavra-chave <strong>extends</strong> para indicar
+                que uma classe está herdando de outra.
+            </p>
 
-<p>
-Em Java utilizamos a palavra-chave <strong>extends</strong> para indicar
-que uma classe está herdando de outra.
-</p>
+            <hr>
 
-<hr>
+            <h2>Exemplo simples</h2>
 
-<h2>Exemplo simples</h2>
-
-<pre>
+            <pre>
 <code>
 public class Pessoa {
 
@@ -54,25 +58,26 @@ public class Aluno extends Pessoa {
 </code>
 </pre>
 
-<h2>Explicação</h2>
+            <h2>Explicação</h2>
 
-<ul>
-<li>A classe <strong>Pessoa</strong> possui o atributo <strong>nome</strong></li>
-<li>A classe <strong>Aluno</strong> herda esse atributo</li>
-<li>Além disso, <strong>Aluno</strong> possui seu próprio atributo chamado <strong>matricula</strong></li>
-</ul>
+            <ul>
+                <li>A classe <strong>Pessoa</strong> possui o atributo <strong>nome</strong></li>
+                <li>A classe <strong>Aluno</strong> herda esse atributo</li>
+                <li>Além disso, <strong>Aluno</strong> possui seu próprio atributo chamado <strong>matricula</strong>
+                </li>
+            </ul>
 
-<p>
-Isso significa que um objeto da classe <strong>Aluno</strong> terá acesso
-tanto ao atributo <strong>nome</strong> quanto ao atributo
-<strong>matricula</strong>.
-</p>
+            <p>
+                Isso significa que um objeto da classe <strong>Aluno</strong> terá acesso
+                tanto ao atributo <strong>nome</strong> quanto ao atributo
+                <strong>matricula</strong>.
+            </p>
 
-<hr>
+            <hr>
 
-<h2>Exemplo completo</h2>
+            <h2>Exemplo completo</h2>
 
-<pre>
+            <pre>
 <code>
 class Pessoa {
 
@@ -107,59 +112,60 @@ public class Teste {
 </code>
 </pre>
 
-<h2>Explicação do exemplo</h2>
+            <h2>Explicação do exemplo</h2>
 
-<p>
-Neste exemplo, a classe <strong>Aluno</strong> herda o atributo
-<strong>nome</strong> e o método <strong>apresentar()</strong> da classe
-<strong>Pessoa</strong>.
-</p>
+            <p>
+                Neste exemplo, a classe <strong>Aluno</strong> herda o atributo
+                <strong>nome</strong> e o método <strong>apresentar()</strong> da classe
+                <strong>Pessoa</strong>.
+            </p>
 
-<p>
-Assim, mesmo que esses elementos não estejam declarados diretamente na
-classe <strong>Aluno</strong>, eles podem ser utilizados normalmente.
-</p>
+            <p>
+                Assim, mesmo que esses elementos não estejam declarados diretamente na
+                classe <strong>Aluno</strong>, eles podem ser utilizados normalmente.
+            </p>
 
-<hr>
+            <hr>
 
-<h2>Vantagens da Herança</h2>
+            <h2>Vantagens da Herança</h2>
 
-<ul>
-<li>Reutilização de código</li>
-<li>Organização das classes</li>
-<li>Facilidade de manutenção</li>
-<li>Possibilita o uso de polimorfismo</li>
-</ul>
+            <ul>
+                <li>Reutilização de código</li>
+                <li>Organização das classes</li>
+                <li>Facilidade de manutenção</li>
+                <li>Possibilita o uso de polimorfismo</li>
+            </ul>
 
-<hr>
+            <hr>
 
-<h2>Atividade</h2>
+            <h2>Atividade</h2>
 
-<p>
-Crie uma classe chamada <strong>Funcionario</strong> contendo:
-</p>
+            <p>
+                Crie uma classe chamada <strong>Funcionario</strong> contendo:
+            </p>
 
-<ul>
-<li>nome</li>
-<li>salario</li>
-</ul>
+            <ul>
+                <li>nome</li>
+                <li>salario</li>
+            </ul>
 
-<p>
-Depois crie uma classe chamada <strong>Gerente</strong> que herda de
-<strong>Funcionario</strong> e adicione um atributo chamado
-<strong>departamento</strong>.
-</p>
+            <p>
+                Depois crie uma classe chamada <strong>Gerente</strong> que herda de
+                <strong>Funcionario</strong> e adicione um atributo chamado
+                <strong>departamento</strong>.
+            </p>
 
-<p>
-Crie um objeto da classe Gerente e exiba suas informações.
-</p>
+            <p>
+                Crie um objeto da classe Gerente e exiba suas informações.
+            </p>
 
-</main>
+        </main>
 
-</div>
-<footer class="footer">
-        <img src="../imagens/base_site_logos-GPTW.png" alt="Selo GPTW">
-    </footer>
-<script src="js/menu.js"></script>
+    </div>
+
+    <div id="footer"></div>
+    <script src="../js/footer.js"></script>
+    <script src="../js/menu.js"></script>
 </body>
+
 </html>

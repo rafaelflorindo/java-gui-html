@@ -2,72 +2,76 @@
 <html lang="pt-br">
 
 <head>
-<meta charset="UTF-8">
-<title>ArrayList em Java</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>ArrayList em Java</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
+    <header>
+        <h1>Ambiente de Ensino de Programação</h1>
+        <p>Linguagem Java</p>
+    </header>
+    <div class="container">
 
-<div class="container">
+        <div id="menu"></div>
 
-<div id="menu"></div>
+        <main class="conteudo">
 
-<main class="conteudo">
+            <h1>ArrayList em Java</h1>
 
-<h1>ArrayList em Java</h1>
+            <p>
+                O <strong>ArrayList</strong> é uma estrutura de dados utilizada para
+                armazenar vários elementos em uma lista.
+            </p>
 
-<p>
-O <strong>ArrayList</strong> é uma estrutura de dados utilizada para
-armazenar vários elementos em uma lista.
-</p>
+            <p>
+                Diferente dos arrays, o ArrayList possui <strong>tamanho dinâmico</strong>,
+                ou seja, ele pode crescer conforme novos elementos são adicionados.
+            </p>
 
-<p>
-Diferente dos arrays, o ArrayList possui <strong>tamanho dinâmico</strong>,
-ou seja, ele pode crescer conforme novos elementos são adicionados.
-</p>
+            <p>
+                O ArrayList faz parte do conjunto de estruturas chamado
+                <strong>Collections (Coleções)</strong> da linguagem Java.
+                Neste material estamos utilizando apenas o ArrayList, mas em breve
+                estudaremos outras estruturas que fazem parte das coleções.
+            </p>
 
-<p>
-O ArrayList faz parte do conjunto de estruturas chamado
-<strong>Collections (Coleções)</strong> da linguagem Java.
-Neste material estamos utilizando apenas o ArrayList, mas em breve
-estudaremos outras estruturas que fazem parte das coleções.
-</p>
+            <hr>
 
-<hr>
+            <h2>Importando a classe</h2>
 
-<h2>Importando a classe</h2>
+            <p>
+                Antes de utilizar o ArrayList é necessário importar a classe.
+            </p>
 
-<p>
-Antes de utilizar o ArrayList é necessário importar a classe.
-</p>
-
-<pre>
+            <pre>
 <code>
 import java.util.ArrayList;
 </code>
 </pre>
 
-<hr>
+            <hr>
 
-<h2>Criando um ArrayList</h2>
+            <h2>Criando um ArrayList</h2>
 
-<pre>
+            <pre>
 <code>
 ArrayList<String> nomes = new ArrayList<>();
 </code>
 </pre>
 
-<p>
-Neste exemplo criamos uma lista chamada <strong>nomes</strong>
-que irá armazenar valores do tipo <strong>String</strong>.
-</p>
+            <p>
+                Neste exemplo criamos uma lista chamada <strong>nomes</strong>
+                que irá armazenar valores do tipo <strong>String</strong>.
+            </p>
 
-<hr>
+            <hr>
 
-<h2>Utilizando o ArrayList sem laço de repetição</h2>
+            <h2>Utilizando o ArrayList sem laço de repetição</h2>
 
-<pre>
+            <pre>
 <code>
 ArrayList<String> nomes = new ArrayList<>();
 
@@ -81,20 +85,20 @@ System.out.println(nomes.get(2));
 </code>
 </pre>
 
-<p>
-Utilizamos:
-</p>
+            <p>
+                Utilizamos:
+            </p>
 
-<ul>
-<li><strong>add()</strong> para adicionar elementos</li>
-<li><strong>get()</strong> para acessar elementos</li>
-</ul>
+            <ul>
+                <li><strong>add()</strong> para adicionar elementos</li>
+                <li><strong>get()</strong> para acessar elementos</li>
+            </ul>
 
-<hr>
+            <hr>
 
-<h2>Utilizando o ArrayList com laço de repetição</h2>
+            <h2>Utilizando o ArrayList com laço de repetição</h2>
 
-<pre>
+            <pre>
 <code>
 ArrayList<String> nomes = new ArrayList<>();
 
@@ -110,29 +114,29 @@ for(int i = 0; i < nomes.size(); i++){
 </code>
 </pre>
 
-<p>
-Utilizamos o método <strong>size()</strong> para saber a quantidade
-de elementos armazenados na lista.
-</p>
+            <p>
+                Utilizamos o método <strong>size()</strong> para saber a quantidade
+                de elementos armazenados na lista.
+            </p>
 
-<hr>
+            <hr>
 
-<h2>ArrayList de Objetos</h2>
+            <h2>ArrayList de Objetos</h2>
 
-<p>
-Assim como os arrays, o ArrayList também pode armazenar
-<strong>objetos</strong>.
-</p>
+            <p>
+                Assim como os arrays, o ArrayList também pode armazenar
+                <strong>objetos</strong>.
+            </p>
 
-<p>
-Para isso precisamos primeiro criar uma classe.
-</p>
+            <p>
+                Para isso precisamos primeiro criar uma classe.
+            </p>
 
-<hr>
+            <hr>
 
-<h2>Classe Pessoa</h2>
+            <h2>Classe Pessoa</h2>
 
-<pre>
+            <pre>
 <code>
 public class Pessoa {
 
@@ -156,11 +160,11 @@ public class Pessoa {
 </code>
 </pre>
 
-<hr>
+            <hr>
 
-<h2>Criando um ArrayList de Pessoa</h2>
+            <h2>Criando um ArrayList de Pessoa</h2>
 
-<pre>
+            <pre>
 <code>
 ArrayList<Pessoa> pessoas = new ArrayList<>();
 
@@ -170,11 +174,11 @@ pessoas.add(new Pessoa(3, "Maria"));
 </code>
 </pre>
 
-<hr>
+            <hr>
 
-<h2>Percorrendo o ArrayList de Pessoas</h2>
+            <h2>Percorrendo o ArrayList de Pessoas</h2>
 
-<pre>
+            <pre>
 <code>
 for(int i = 0; i < pessoas.size(); i++){
 
@@ -188,11 +192,11 @@ for(int i = 0; i < pessoas.size(); i++){
 </code>
 </pre>
 
-<hr>
+            <hr>
 
-<h2>Alterando e removendo elementos</h2>
+            <h2>Alterando e removendo elementos</h2>
 
-<pre>
+            <pre>
 <code>
 ArrayList<String> nomes = new ArrayList<>();
 
@@ -213,44 +217,45 @@ for(int i = 0; i < nomes.size(); i++){
 </code>
 </pre>
 
-<p>
-Utilizamos:
-</p>
+            <p>
+                Utilizamos:
+            </p>
 
-<ul>
-<li><strong>set()</strong> para alterar um elemento em uma posição específica</li>
-<li><strong>remove()</strong> para remover um elemento da lista</li>
-</ul>
-<p>
-<strong>Após remover um elemento, os índices da lista são reorganizados automaticamente.</strong>
-</p>
-<hr>
+            <ul>
+                <li><strong>set()</strong> para alterar um elemento em uma posição específica</li>
+                <li><strong>remove()</strong> para remover um elemento da lista</li>
+            </ul>
+            <p>
+                <strong>Após remover um elemento, os índices da lista são reorganizados automaticamente.</strong>
+            </p>
+            <hr>
 
-<h2>Resumo</h2>
+            <h2>Resumo</h2>
 
-<ul>
-<li>ArrayList faz parte das Collections</li>
-<li>Possui tamanho dinâmico</li>
-<li>Possui métodos como add(), get() e size()</li>
-<li>Pode armazenar objetos</li>
-</ul>
+            <ul>
+                <li>ArrayList faz parte das Collections</li>
+                <li>Possui tamanho dinâmico</li>
+                <li>Possui métodos como add(), get() e size()</li>
+                <li>Pode armazenar objetos</li>
+            </ul>
 
-<hr>
+            <hr>
 
-<h2>Atividade</h2>
+            <h2>Atividade</h2>
 
-<p>
-Crie um <strong>ArrayList de Pessoa</strong> e adicione pelo menos
-<strong>4 pessoas</strong>. Em seguida, utilize um
-<strong>laço for</strong> para exibir os dados.
-</p>
+            <p>
+                Crie um <strong>ArrayList de Pessoa</strong> e adicione pelo menos
+                <strong>4 pessoas</strong>. Em seguida, utilize um
+                <strong>laço for</strong> para exibir os dados.
+            </p>
 
-</main>
+        </main>
 
-</div>
-<footer class="footer">
-        <img src="../imagens/base_site_logos-GPTW.png" alt="Selo GPTW">
-    </footer>
-<script src="js/menu.js"></script>
+    </div>
+
+    <div id="footer"></div>
+    <script src="../js/footer.js"></script>
+    <script src="../js/menu.js"></script>
 </body>
+
 </html>

@@ -2,51 +2,55 @@
 <html lang="pt-br">
 
 <head>
-<meta charset="UTF-8">
-<title>Estruturas de Repetição</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>Estruturas de Repetição</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
+    <header>
+        <h1>Ambiente de Ensino de Programação</h1>
+        <p>Linguagem Java</p>
+    </header>
+    <div class="container">
 
-<div class="container">
+        <div id="menu"></div>
 
-<div id="menu"></div>
+        <main class="conteudo">
 
-<main class="conteudo">
+            <h1>Estruturas de Repetição em Java</h1>
 
-<h1>Estruturas de Repetição em Java</h1>
+            <p>
+                As estruturas de repetição permitem executar um bloco de código várias vezes,
+                de acordo com uma condição definida pelo programador.
+            </p>
 
-<p>
-As estruturas de repetição permitem executar um bloco de código várias vezes,
-de acordo com uma condição definida pelo programador.
-</p>
+            <p>
+                Elas são muito utilizadas quando precisamos repetir tarefas, como percorrer
+                listas, exibir valores ou realizar cálculos repetitivos.
+            </p>
 
-<p>
-Elas são muito utilizadas quando precisamos repetir tarefas, como percorrer
-listas, exibir valores ou realizar cálculos repetitivos.
-</p>
+            <h2>Principais estruturas de repetição</h2>
 
-<h2>Principais estruturas de repetição</h2>
+            <ul>
+                <li><strong>for</strong></li>
+                <li><strong>while</strong></li>
+                <li><strong>do while</strong></li>
+            </ul>
 
-<ul>
-<li><strong>for</strong></li>
-<li><strong>while</strong></li>
-<li><strong>do while</strong></li>
-</ul>
+            <hr>
 
-<hr>
+            <h2>Estrutura for</h2>
 
-<h2>Estrutura for</h2>
+            <p>
+                A estrutura <strong>for</strong> é utilizada quando sabemos antecipadamente
+                quantas vezes o bloco de código deverá ser executado.
+            </p>
 
-<p>
-A estrutura <strong>for</strong> é utilizada quando sabemos antecipadamente
-quantas vezes o bloco de código deverá ser executado.
-</p>
+            <p><strong>Sintaxe:</strong></p>
 
-<p><strong>Sintaxe:</strong></p>
-
-<pre>
+            <pre>
 <code>
 for(inicialização; condição; incremento){
     // código que será repetido
@@ -54,9 +58,9 @@ for(inicialização; condição; incremento){
 </code>
 </pre>
 
-<h2>Exemplo com for</h2>
+            <h2>Exemplo com for</h2>
 
-<pre>
+            <pre>
 <code>
 public class Exemplo {
 
@@ -74,31 +78,31 @@ public class Exemplo {
 </code>
 </pre>
 
-<h2>Explicação do código</h2>
+            <h2>Explicação do código</h2>
 
-<ul>
-<li><strong>int i = 1</strong> → inicializa a variável de controle</li>
-<li><strong>i <= 5</strong> → condição para continuar o loop</li>
-<li><strong>i++</strong> → incrementa o valor da variável</li>
-</ul>
+            <ul>
+                <li><strong>int i = 1</strong> → inicializa a variável de controle</li>
+                <li><strong>i <= 5</strong> → condição para continuar o loop</li>
+                <li><strong>i++</strong> → incrementa o valor da variável</li>
+            </ul>
 
-<p>
-Nesse exemplo, o programa exibirá os números de 1 até 5.
-</p>
+            <p>
+                Nesse exemplo, o programa exibirá os números de 1 até 5.
+            </p>
 
-<hr>
+            <hr>
 
-<h2>Estrutura while</h2>
+            <h2>Estrutura while</h2>
 
-<p>
-A estrutura <strong>while</strong> é utilizada quando não sabemos exatamente
-quantas vezes o código será executado, mas temos uma condição que controla
-a repetição.
-</p>
+            <p>
+                A estrutura <strong>while</strong> é utilizada quando não sabemos exatamente
+                quantas vezes o código será executado, mas temos uma condição que controla
+                a repetição.
+            </p>
 
-<p><strong>Sintaxe:</strong></p>
+            <p><strong>Sintaxe:</strong></p>
 
-<pre>
+            <pre>
 <code>
 while(condição){
     // código executado enquanto a condição for verdadeira
@@ -106,9 +110,9 @@ while(condição){
 </code>
 </pre>
 
-<h2>Exemplo com while</h2>
+            <h2>Exemplo com while</h2>
 
-<pre>
+            <pre>
 <code>
 int contador = 1;
 
@@ -122,24 +126,24 @@ while(contador <= 5){
 </code>
 </pre>
 
-<p>
-Neste exemplo, o programa exibirá os números de 1 até 5 enquanto
-a condição <strong>contador <= 5</strong> for verdadeira.
-</p>
+            <p>
+                Neste exemplo, o programa exibirá os números de 1 até 5 enquanto
+                a condição <strong>contador <= 5</strong> for verdadeira.
+            </p>
 
-<hr>
+            <hr>
 
-<h2>Estrutura do while</h2>
+            <h2>Estrutura do while</h2>
 
-<p>
-A estrutura <strong>do while</strong> é semelhante ao while, porém possui
-uma diferença importante: o bloco de código é executado pelo menos
-uma vez antes da verificação da condição.
-</p>
+            <p>
+                A estrutura <strong>do while</strong> é semelhante ao while, porém possui
+                uma diferença importante: o bloco de código é executado pelo menos
+                uma vez antes da verificação da condição.
+            </p>
 
-<p><strong>Sintaxe:</strong></p>
+            <p><strong>Sintaxe:</strong></p>
 
-<pre>
+            <pre>
 <code>
 do{
     // código executado
@@ -147,9 +151,9 @@ do{
 </code>
 </pre>
 
-<h2>Exemplo com do while</h2>
+            <h2>Exemplo com do while</h2>
 
-<pre>
+            <pre>
 <code>
 int numero = 1;
 
@@ -163,30 +167,30 @@ do{
 </code>
 </pre>
 
-<p>
-Nesse caso, o bloco será executado primeiro e somente depois
-a condição será verificada.
-</p>
+            <p>
+                Nesse caso, o bloco será executado primeiro e somente depois
+                a condição será verificada.
+            </p>
 
-<hr>
+            <hr>
 
-<h2>Comparação entre as estruturas</h2>
+            <h2>Comparação entre as estruturas</h2>
 
-<ul>
-<li><strong>for</strong> → usado quando sabemos o número de repetições</li>
-<li><strong>while</strong> → usado quando a repetição depende de uma condição</li>
-<li><strong>do while</strong> → garante pelo menos uma execução</li>
-</ul>
+            <ul>
+                <li><strong>for</strong> → usado quando sabemos o número de repetições</li>
+                <li><strong>while</strong> → usado quando a repetição depende de uma condição</li>
+                <li><strong>do while</strong> → garante pelo menos uma execução</li>
+            </ul>
 
-<hr>
+            <hr>
 
-<h2>Exemplo aplicado</h2>
+            <h2>Exemplo aplicado</h2>
 
-<p>
-O programa abaixo exibe a tabuada do número 5:
-</p>
+            <p>
+                O programa abaixo exibe a tabuada do número 5:
+            </p>
 
-<pre>
+            <pre>
 <code>
 public class Tabuada {
 
@@ -204,25 +208,26 @@ public class Tabuada {
 </code>
 </pre>
 
-<hr>
+            <hr>
 
-<h2>Atividade</h2>
+            <h2>Atividade</h2>
 
-<p>
-Crie um programa em Java que utilize uma estrutura de repetição
-para exibir os números de 1 até 10.
-</p>
+            <p>
+                Crie um programa em Java que utilize uma estrutura de repetição
+                para exibir os números de 1 até 10.
+            </p>
 
-<p>
-Depois modifique o programa para exibir apenas os números pares.
-</p>
+            <p>
+                Depois modifique o programa para exibir apenas os números pares.
+            </p>
 
-</main>
+        </main>
 
-</div>
-<footer class="footer">
-        <img src="../imagens/base_site_logos-GPTW.png" alt="Selo GPTW">
-    </footer>
-<script src="js/menu.js"></script>
+    </div>
+
+    <div id="footer"></div>
+    <script src="../js/footer.js"></script>
+    <script src="../js/menu.js"></script>
 </body>
+
 </html>

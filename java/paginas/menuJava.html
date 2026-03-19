@@ -2,45 +2,49 @@
 <html lang="pt-br">
 
 <head>
-<meta charset="UTF-8">
-<title>Menu em Java</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>Menu em Java</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
+    <header>
+        <h1>Ambiente de Ensino de Programação</h1>
+        <p>Linguagem Java</p>
+    </header>
+    <div class="container">
 
-<div class="container">
+        <div id="menu"></div>
 
-<div id="menu"></div>
+        <main class="conteudo">
 
-<main class="conteudo">
+            <h1>Menu em Java com do while e switch</h1>
 
-<h1>Menu em Java com do while e switch</h1>
+            <p>
+                Em muitos programas é necessário apresentar um <strong>menu de opções</strong>
+                para que o usuário escolha o que deseja executar.
+            </p>
 
-<p>
-Em muitos programas é necessário apresentar um <strong>menu de opções</strong>
-para que o usuário escolha o que deseja executar.
-</p>
+            <p>
+                Para isso, utilizamos estruturas de repetição e decisão, permitindo que
+                o programa continue executando até que o usuário escolha sair.
+            </p>
 
-<p>
-Para isso, utilizamos estruturas de repetição e decisão, permitindo que
-o programa continue executando até que o usuário escolha sair.
-</p>
+            <hr>
 
-<hr>
+            <h2>Estruturas utilizadas</h2>
 
-<h2>Estruturas utilizadas</h2>
+            <ul>
+                <li><strong>do while</strong> → repete o menu até o usuário decidir sair</li>
+                <li><strong>switch</strong> → executa ações com base na opção escolhida</li>
+            </ul>
 
-<ul>
-<li><strong>do while</strong> → repete o menu até o usuário decidir sair</li>
-<li><strong>switch</strong> → executa ações com base na opção escolhida</li>
-</ul>
+            <hr>
 
-<hr>
+            <h2>Exemplo de menu</h2>
 
-<h2>Exemplo de menu</h2>
-
-<pre>
+            <pre>
 <code>
 import java.util.Scanner;
 
@@ -88,54 +92,53 @@ public class MenuExemplo {
 </code>
 </pre>
 
-<hr>
+            <hr>
 
-<h2>Explicação do código</h2>
+            <h2>Explicação do código</h2>
 
-<ul>
-<li>O <strong>do while</strong> garante que o menu será exibido pelo menos uma vez</li>
-<li>O programa continua executando enquanto a opção for diferente de <strong>3</strong></li>
-<li>O <strong>switch</strong> verifica qual opção o usuário escolheu</li>
-<li>Cada <strong>case</strong> representa uma ação diferente</li>
-<li>O <strong>break</strong> evita que outros casos sejam executados</li>
-</ul>
+            <ul>
+                <li>O <strong>do while</strong> garante que o menu será exibido pelo menos uma vez</li>
+                <li>O programa continua executando enquanto a opção for diferente de <strong>3</strong></li>
+                <li>O <strong>switch</strong> verifica qual opção o usuário escolheu</li>
+                <li>Cada <strong>case</strong> representa uma ação diferente</li>
+                <li>O <strong>break</strong> evita que outros casos sejam executados</li>
+            </ul>
 
-<hr>
+            <hr>
 
-<h2>Boas práticas</h2>
+            <h2>Boas práticas</h2>
 
-<ul>
-<li>Sempre incluir a opção de sair do programa</li>
-<li>Utilizar <strong>default</strong> para tratar opções inválidas</li>
-<li>Organizar bem a exibição do menu para facilitar a leitura</li>
-</ul>
+            <ul>
+                <li>Sempre incluir a opção de sair do programa</li>
+                <li>Utilizar <strong>default</strong> para tratar opções inválidas</li>
+                <li>Organizar bem a exibição do menu para facilitar a leitura</li>
+            </ul>
 
-<hr>
+            <hr>
 
-<h2>Atividade</h2>
+            <h2>Atividade</h2>
 
-<p>
-Crie um programa com menu que possua as seguintes opções:
-</p>
+            <p>
+                Crie um programa com menu que possua as seguintes opções:
+            </p>
 
-<ul>
-<li>1 - Inserir nome</li>
-<li>2 - Exibir nome</li>
-<li>3 - Sair</li>
-</ul>
+            <ul>
+                <li>1 - Inserir nome</li>
+                <li>2 - Exibir nome</li>
+                <li>3 - Sair</li>
+            </ul>
 
-<p>
-Utilize <strong>do while</strong> e <strong>switch</strong>.
-</p>
+            <p>
+                Utilize <strong>do while</strong> e <strong>switch</strong>.
+            </p>
 
-</main>
+        </main>
 
-</div>
+    </div>
 
-<footer class="footer">
-    <img src="../imagens/base_site_logos-GPTW.png" alt="Selo GPTW">
-</footer>
-
-<script src="js/menu.js"></script>
+    <div id="footer"></div>
+    <script src="../js/footer.js"></script>
+    <script src="../js/menu.js"></script>
 </body>
+
 </html>
