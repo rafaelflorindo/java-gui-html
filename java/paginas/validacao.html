@@ -13,6 +13,7 @@
         <h1>Ambiente de Ensino de Programação</h1>
         <p>Linguagem Java</p>
     </header>
+
     <div class="container">
 
         <div id="menu"></div>
@@ -22,27 +23,148 @@
             <h1>Validação de Dados</h1>
 
             <p>
-                É importante garantir que os dados informados pelo usuário sejam válidos.
+                Durante o desenvolvimento de programas, é fundamental garantir que os dados
+                informados pelo usuário sejam válidos. Isso evita erros e melhora a
+                confiabilidade do sistema.
             </p>
 
             <hr>
 
+            <h2>Validação na entrada de dados</h2>
+
+            <p>
+                Podemos utilizar estruturas de repetição para garantir que o usuário informe
+                valores válidos.
+            </p>
+
             <pre><code>
 int idade;
 
-do{
+do {
     System.out.print("Digite uma idade válida: ");
     idade = scanner.nextInt();
-}while(idade < 0);
+} while (idade < 0);
 </code></pre>
+
+            <p>
+                Nesse exemplo, o programa continuará solicitando a idade até que o valor
+                seja maior ou igual a zero.
+            </p>
+
+            <hr>
+
+            <h2>Validação em Programação Orientada a Objetos</h2>
+
+            <p>
+                Além de validar a entrada de dados, também é importante garantir que os objetos
+                do sistema nunca armazenem valores inválidos.
+            </p>
+
+            <p>
+                Para isso, utilizamos os métodos <strong>setters</strong>.
+            </p>
+
+            <pre><code>
+public class Pessoa {
+
+    private int idade;
+
+    public void setIdade(int idade) {
+
+        if (idade < 0) {
+            System.out.println("Idade inválida!");
+        } else {
+            this.idade = idade;
+        }
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+}
+</code></pre>
+
+            <hr>
+
+            <h2>Utilizando as duas validações</h2>
+
+            <p>
+                O ideal é utilizar as duas formas de validação:
+            </p>
+
+            <ul>
+                <li>Validação na entrada → evita erros no programa</li>
+                <li>Validação no setter → protege o objeto</li>
+            </ul>
+
+            <pre><code>
+import java.util.Scanner;
+
+public class Programa {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        Pessoa p = new Pessoa();
+
+        int idade;
+
+        do {
+            System.out.print("Digite uma idade válida: ");
+            idade = scanner.nextInt();
+        } while (idade < 0);
+
+        p.setIdade(idade);
+
+        System.out.println("Idade cadastrada: " + p.getIdade());
+
+        scanner.close();
+    }
+}
+</code></pre>
+
+            <hr>
+
+            <h2>Boas práticas</h2>
+
+            <ul>
+                <li>Sempre validar dados informados pelo usuário</li>
+                <li>Não confiar em entradas externas</li>
+                <li>Utilizar setters para proteger os objetos</li>
+                <li>Evitar que o sistema trabalhe com dados inválidos</li>
+            </ul>
+
+            <hr>
+
+            <h2>Atividade</h2>
+
+            <p>Crie um programa que:</p>
+
+            <ul>
+                <li>Solicite a idade do usuário</li>
+                <li>Valide a entrada (não permitir valores negativos)</li>
+                <li>Utilize uma classe com setter para armazenar a idade</li>
+                <li>Exiba o valor ao final</li>
+            </ul>
+
+            <hr>
+
+            <h2>Próximo passo</h2>
+
+            <p>
+                Nas próximas páginas, veremos como tratar erros de forma mais avançada utilizando
+                <strong>exceções</strong>, tornando o sistema ainda mais robusto.
+            </p>
 
         </main>
 
     </div>
 
     <div id="footer"></div>
+
     <script src="../js/footer.js"></script>
     <script src="../js/menu.js"></script>
+
 </body>
 
 </html>

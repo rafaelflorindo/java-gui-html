@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tratamento de Exceções</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Ambiente de Ensino de Programação</h1>
+        <p>Linguagem Java</p>
+    </header>
+
+    <div class="container">
+
+        <div id="menu"></div>
+
+        <main class="conteudo">
+
+            <h1>Tratamento de Exceções</h1>
+
+            <p>
+                Durante a execução de um programa, podem ocorrer erros inesperados, como
+                entrada de dados inválida ou operações impossíveis de serem realizadas.
+            </p>
+
+            <p>
+                Esses erros são chamados de <strong>exceções</strong>. Em Java, podemos
+                tratar essas situações para evitar que o programa seja interrompido.
+            </p>
+
+            <hr>
+
+            <h2>Exemplo de erro</h2>
+
+            <p>
+                Observe o código abaixo:
+            </p>
+
+            <pre><code>
+Scanner scanner = new Scanner(System.in);
+
+System.out.print("Digite um número: ");
+int numero = scanner.nextInt();
+</code></pre>
+
+            <p>
+                Se o usuário digitar <strong>texto</strong> ao invés de um número, o programa
+                será interrompido com erro.
+            </p>
+
+            <hr>
+
+            <h2>Tratando erros com try e catch</h2>
+
+            <p>
+                Podemos utilizar o bloco <strong>try/catch</strong> para capturar e tratar
+                esse erro.
+            </p>
+
+            <pre><code>
+import java.util.Scanner;
+
+public class Exemplo {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            System.out.print("Digite um número: ");
+            int numero = scanner.nextInt();
+
+            System.out.println("Número digitado: " + numero);
+
+        } catch (Exception e) {
+            System.out.println("Erro: valor inválido!");
+        }
+
+        scanner.close();
+    }
+}
+</code></pre>
+
+            <h2>Explicação</h2>
+
+            <ul>
+                <li><strong>try</strong> → bloco onde pode ocorrer erro</li>
+                <li><strong>catch</strong> → trata o erro ocorrido</li>
+                <li><strong>Exception</strong> → tipo genérico de erro</li>
+            </ul>
+
+            <hr>
+
+            <h2>Exibindo a mensagem do erro</h2>
+
+            <pre><code>
+catch (Exception e) {
+    System.out.println(e.getMessage());
+}
+</code></pre>
+
+            <p>
+                O método <strong>getMessage()</strong> retorna a mensagem original do erro.
+            </p>
+
+            <hr>
+
+            <h2>Exemplo com repetição</h2>
+
+            <p>
+                Podemos combinar tratamento de exceções com estruturas de repetição:
+            </p>
+
+            <pre><code>
+int numero = 0;
+boolean valido = false;
+
+while (!valido) {
+    try {
+        System.out.print("Digite um número inteiro: ");
+        numero = scanner.nextInt();
+        valido = true;
+    } catch (Exception e) {
+        System.out.println("Valor inválido! Tente novamente.");
+        scanner.next(); // limpa entrada inválida
+    }
+}
+</code></pre>
+
+            <hr>
+
+            <h2>Exceções em Programação Orientada a Objetos</h2>
+
+            <p>
+                Também podemos utilizar exceções para garantir regras dentro das classes.
+            </p>
+
+            <pre><code>
+public class Pessoa {
+
+    private int idade;
+
+    public void setIdade(int idade) {
+
+        if (idade < 0) {
+            throw new IllegalArgumentException("Idade não pode ser negativa");
+        }
+
+        this.idade = idade;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+}
+</code></pre>
+
+            <hr>
+
+            <h2>Utilizando a exceção</h2>
+
+            <pre><code>
+try {
+    p.setIdade(-10);
+} catch (Exception e) {
+    System.out.println(e.getMessage());
+}
+</code></pre>
+
+            <hr>
+
+            <h2>Boas práticas</h2>
+
+            <ul>
+                <li>Utilizar try/catch para evitar que o programa quebre</li>
+                <li>Exibir mensagens claras para o usuário</li>
+                <li>Evitar capturar exceções genéricas em excesso</li>
+                <li>Utilizar exceções para proteger regras do sistema</li>
+            </ul>
+
+            <hr>
+
+            <h2>Atividade</h2>
+
+            <p>Crie um programa que:</p>
+
+            <ul>
+                <li>Solicite um número inteiro ao usuário</li>
+                <li>Utilize try/catch para tratar entradas inválidas</li>
+                <li>Repita a leitura até o valor ser válido</li>
+                <li>Exiba o número ao final</li>
+            </ul>
+
+            <hr>
+
+            <h2>Desafio</h2>
+
+            <p>
+                Crie uma classe com um setter que lance uma exceção caso o valor seja inválido,
+                e trate essa exceção no método principal.
+            </p>
+
+        </main>
+
+    </div>
+
+    <div id="footer"></div>
+
+    <script src="../js/footer.js"></script>
+    <script src="../js/menu.js"></script>
+
+</body>
+
+</html>
