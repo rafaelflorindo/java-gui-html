@@ -13,50 +13,205 @@
         <h1>Ambiente de Ensino de Programação</h1>
         <p>Linguagem Java</p>
     </header>
+
     <div class="container">
 
         <div id="menu"></div>
 
         <main class="conteudo">
+
             <h1>ArrayList na prática</h1>
 
             <p>
-                Agora vamos utilizar o ArrayList com entrada de dados.
+                Nesta aula, vamos construir um pequeno sistema utilizando <strong>ArrayList</strong>,
+                entrada de dados com <strong>Scanner</strong> e um menu interativo com operações de CRUD.
             </p>
 
             <hr>
+
+            <h2>Classe Pessoa</h2>
+
+            <pre><code>
+public class Pessoa {
+
+    private String nome;
+
+    public Pessoa(String nome) {
+        this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+}
+</code></pre>
+
+            <hr>
+
+            <h2>Programa com menu (CRUD)</h2>
 
             <pre><code>
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Exemplo {
+public class Sistema {
+
+    static Scanner sc = new Scanner(System.in);
+    static ArrayList&lt;Pessoa&gt; lista = new ArrayList&lt;&gt;();
 
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
-        ArrayList<String> nomes = new ArrayList<>();
+        int opcao;
 
-        for(int i = 0; i < 3; i++){
-            System.out.print("Digite um nome: ");
-            nomes.add(sc.nextLine());
+        do {
+            System.out.println("\n--- MENU ---");
+            System.out.println("1 - Cadastrar");
+            System.out.println("2 - Listar");
+            System.out.println("3 - Atualizar");
+            System.out.println("4 - Remover");
+            System.out.println("0 - Sair");
+
+            System.out.print("Escolha uma opção: ");
+            opcao = sc.nextInt();
+            sc.nextLine(); // limpar buffer
+
+            switch (opcao) {
+                case 1:
+                    cadastrar();
+                    break;
+                case 2:
+                    listar();
+                    break;
+                case 3:
+                    atualizar();
+                    break;
+                case 4:
+                    remover();
+                    break;
+            }
+
+        } while (opcao != 0);
+
+        System.out.println("Encerrando sistema...");
+    }
+
+    // CREATE
+    public static void cadastrar() {
+        System.out.print("Digite o nome: ");
+        String nome = sc.nextLine();
+
+        Pessoa p = new Pessoa(nome);
+        lista.add(p);
+
+        System.out.println("Cadastro realizado!");
+    }
+
+    // READ
+    public static void listar() {
+        if (lista.isEmpty()) {
+            System.out.println("Lista vazia!");
+            return;
         }
 
-        for(String nome : nomes){
-            System.out.println(nome);
+        for (int i = 0; i < lista.size(); i++) {
+            System.out.println(i + " - " + lista.get(i).getNome());
         }
+    }
 
+    // UPDATE
+    public static void atualizar() {
+        listar();
+
+        System.out.print("Digite o índice para atualizar: ");
+        int i = sc.nextInt();
+        sc.nextLine();
+
+        if (i >= 0 && i < lista.size()) {
+            System.out.print("Novo nome: ");
+            String nome = sc.nextLine();
+
+            lista.get(i).setNome(nome);
+
+            System.out.println("Atualizado com sucesso!");
+        } else {
+            System.out.println("Índice inválido!");
+        }
+    }
+
+    // DELETE
+    public static void remover() {
+        listar();
+
+        System.out.print("Digite o índice para remover: ");
+        int i = sc.nextInt();
+        sc.nextLine();
+
+        if (i >= 0 && i < lista.size()) {
+            lista.remove(i);
+            System.out.println("Removido com sucesso!");
+        } else {
+            System.out.println("Índice inválido!");
+        }
     }
 }
 </code></pre>
+
+            <hr>
+
+            <h2>Explicação</h2>
+
+            <ul>
+                <li><strong>ArrayList</strong> → armazena os objetos</li>
+                <li><strong>Scanner</strong> → entrada de dados</li>
+                <li><strong>Menu</strong> → interação com o usuário</li>
+                <li><strong>Métodos estáticos</strong> → organizam o código</li>
+                <li><strong>CRUD</strong> → Create, Read, Update, Delete</li>
+            </ul>
+
+            <hr>
+
+            <h2>Boas práticas</h2>
+
+            <ul>
+                <li>Separar lógica em métodos</li>
+                <li>Validar índices antes de acessar a lista</li>
+                <li>Utilizar classes para representar dados</li>
+                <li>Evitar código repetido</li>
+            </ul>
+
+            <hr>
+
+            <h2>Atividade</h2>
+
+            <p>Adapte o sistema para:</p>
+
+            <ul>
+                <li>Adicionar mais atributos na classe (ex: idade)</li>
+                <li>Exibir todos os dados no método listar</li>
+                <li>Validar entradas do usuário</li>
+            </ul>
+
+            <hr>
+
+            <h2>Desafio</h2>
+
+            <p>
+                Implemente uma busca por nome dentro da lista.
+            </p>
 
         </main>
 
     </div>
 
     <div id="footer"></div>
+
     <script src="../js/footer.js"></script>
     <script src="../js/menu.js"></script>
+
 </body>
 
 </html>
