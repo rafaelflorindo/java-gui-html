@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Introdução ao Swing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Ambiente de Ensino de Programação</h1>
+    <p>Linguagem Java</p>
+</header>
+
+<div class="container">
+
+    <div id="menu"></div>
+
+    <main class="conteudo">
+
+        <h1>Introdução ao Swing (via código)</h1>
+
+        <p>
+            Até agora utilizamos o console para interagir com o usuário.
+        </p>
+
+        <p>
+            A partir deste momento, vamos utilizar o <strong>Swing</strong>,
+            uma biblioteca do Java para criação de interfaces gráficas.
+        </p>
+
+        <hr>
+
+        <h2>Objetivo</h2>
+
+        <p>
+            Criar uma tela que:
+        </p>
+
+        <ul>
+            <li>Recebe nome e idade</li>
+            <li>Ao clicar no botão, exibe os dados na tela</li>
+        </ul>
+
+        <hr>
+
+        <h2>Exemplo completo</h2>
+
+        <pre><code>
+import javax.swing.*;
+import java.awt.event.*;
+
+public class Tela {
+
+    public static void main(String[] args){
+
+        JFrame janela = new JFrame("Cadastro");
+
+        JLabel lblNome = new JLabel("Nome:");
+        lblNome.setBounds(20, 20, 100, 25);
+
+        JTextField txtNome = new JTextField();
+        txtNome.setBounds(100, 20, 150, 25);
+
+        JLabel lblIdade = new JLabel("Idade:");
+        lblIdade.setBounds(20, 60, 100, 25);
+
+        JTextField txtIdade = new JTextField();
+        txtIdade.setBounds(100, 60, 150, 25);
+
+        JButton botao = new JButton("Enviar");
+        botao.setBounds(100, 100, 100, 30);
+
+        JLabel lblResultado = new JLabel("");
+        lblResultado.setBounds(20, 150, 300, 25);
+
+        botao.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+
+                String nome = txtNome.getText();
+
+                // Conversão de String para int
+                int idade = Integer.parseInt(txtIdade.getText());
+
+                // Convertendo novamente para String
+                String resultado = "Nome: " + nome + " | Idade: " + idade;
+
+                lblResultado.setText(resultado);
+            }
+        });
+
+        janela.add(lblNome);
+        janela.add(txtNome);
+        janela.add(lblIdade);
+        janela.add(txtIdade);
+        janela.add(botao);
+        janela.add(lblResultado);
+
+        janela.setSize(350, 250);
+        janela.setLayout(null);
+        janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        janela.setVisible(true);
+    }
+}
+</code></pre>
+
+        <hr>
+
+        <h2>Explicação</h2>
+
+        <h3>Componentes utilizados</h3>
+
+        <ul>
+            <li><strong>JFrame</strong> → janela principal</li>
+            <li><strong>JLabel</strong> → texto na tela</li>
+            <li><strong>JTextField</strong> → campo de entrada</li>
+            <li><strong>JButton</strong> → botão</li>
+        </ul>
+
+        <hr>
+
+        <h3>Posicionamento</h3>
+
+        <p>
+            Utilizamos o método <strong>setBounds(x, y, largura, altura)</strong>
+            para posicionar os componentes na tela.
+        </p>
+
+        <hr>
+
+        <h3>ActionListener</h3>
+
+        <p>
+            O <strong>ActionListener</strong> é responsável por capturar o clique do botão.
+        </p>
+
+        <p>
+            Tudo que estiver dentro de <strong>actionPerformed</strong> será executado ao clicar.
+        </p>
+
+        <hr>
+
+        <h3>Conversão de dados</h3>
+
+        <p>
+            O JTextField sempre retorna <strong>String</strong>.
+        </p>
+
+        <pre><code>
+int idade = Integer.parseInt(txtIdade.getText());
+</code></pre>
+
+        <p>
+            Aqui convertemos para <strong>int</strong>.
+        </p>
+
+        <p>
+            Depois, ao exibir, o Java automaticamente converte para String.
+        </p>
+
+        <hr>
+
+        <h2>Importante</h2>
+
+        <ul>
+            <li>Interface via código é mais trabalhosa</li>
+            <li>Serve para entender o funcionamento</li>
+            <li>Depois utilizaremos interface gráfica da IDE</li>
+        </ul>
+
+        <hr>
+        <h2>Visual da aplicação</h2>
+
+        <p>
+            A imagem abaixo mostra o resultado da execução do código em Java Swing:
+        </p>
+        
+        <img src="../imagens/swing1.png" alt="Interface Swing" style="max-width:100%; border:1px solid #ccc;">
+        
+        <hr>
+        <h2>Resumo</h2>
+
+        <ul>
+            <li>Swing permite criar interfaces gráficas</li>
+            <li>Componentes são adicionados à janela</li>
+            <li>Eventos controlam ações (clique)</li>
+            <li>Campos de texto sempre retornam String</li>
+        </ul>
+
+    </main>
+
+</div>
+
+<div id="footer"></div>
+
+<script src="../js/footer.js"></script>
+<script src="../js/menu.js"></script>
+
+</body>
+</html>
