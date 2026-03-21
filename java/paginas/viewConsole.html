@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>View (Console)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Ambiente de Ensino de Programação</h1>
+    <p>Linguagem Java</p>
+</header>
+
+<div class="container">
+
+    <div id="menu"></div>
+
+    <main class="conteudo">
+
+        <h1>View (Interface no Console)</h1>
+
+        <p>
+            Até agora, utilizamos o <strong>System.out.println()</strong> e o <strong>Scanner</strong>
+            diretamente no código principal.
+        </p>
+
+        <p>
+            Porém, em sistemas organizados, a parte responsável por conversar com o usuário
+            deve ficar separada. Essa parte é chamada de <strong>View</strong>.
+        </p>
+
+        <hr>
+
+        <h2>O que é a View?</h2>
+
+        <p>
+            A View é responsável pela interação com o usuário, ou seja:
+        </p>
+
+        <ul>
+            <li>Exibir informações</li>
+            <li>Ler dados digitados</li>
+        </ul>
+
+        <p>
+            Ela <strong>não deve conter regras de negócio</strong> e nem acessar o banco de dados.
+        </p>
+
+        <hr>
+
+        <h2>Antes (forma não organizada)</h2>
+
+        <pre><code>
+Scanner sc = new Scanner(System.in);
+
+System.out.print("Nome: ");
+String nome = sc.nextLine();
+</code></pre>
+
+        <p>
+            Aqui estamos misturando interface com lógica do sistema.
+        </p>
+
+        <hr>
+
+        <h2>Depois (usando View)</h2>
+
+        <p>
+            Agora vamos separar essa responsabilidade em uma classe específica.
+        </p>
+
+        <pre><code>
+import java.util.Scanner;
+
+public class PessoaView {
+
+    private Scanner sc = new Scanner(System.in);
+
+    public String lerNome(){
+        System.out.print("Digite o nome: ");
+        return sc.nextLine();
+    }
+
+    public int lerIdade(){
+        System.out.print("Digite a idade: ");
+        return sc.nextInt();
+    }
+
+    public void mostrarPessoa(String nome, int idade){
+        System.out.println("Nome: " + nome);
+        System.out.println("Idade: " + idade);
+    }
+
+    public void mostrarMensagem(String msg){
+        System.out.println(msg);
+    }
+}
+</code></pre>
+
+        <hr>
+
+        <h2>Explicação do código</h2>
+
+        <ul>
+            <li><strong>Scanner</strong> → utilizado para entrada de dados</li>
+            <li><strong>lerNome()</strong> → solicita o nome ao usuário</li>
+            <li><strong>lerIdade()</strong> → solicita a idade</li>
+            <li><strong>mostrarPessoa()</strong> → exibe dados na tela</li>
+            <li><strong>mostrarMensagem()</strong> → exibe mensagens gerais</li>
+        </ul>
+
+        <hr>
+
+        <h2>Importante</h2>
+
+        <p>
+            A View não deve:
+        </p>
+
+        <ul>
+            <li>Salvar dados</li>
+            <li>Aplicar regras de negócio</li>
+            <li>Acessar o DAO</li>
+        </ul>
+
+        <hr>
+
+        <h2>Resumo</h2>
+
+        <ul>
+            <li>View → interface com o usuário</li>
+            <li>Controller → controla a aplicação</li>
+            <li>DAO → acessa os dados</li>
+        </ul>
+
+    </main>
+
+</div>
+
+<div id="footer"></div>
+
+<script src="../js/footer.js"></script>
+<script src="../js/menu.js"></script>
+
+</body>
+</html>

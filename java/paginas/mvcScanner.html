@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>MVC Completo com Scanner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Ambiente de Ensino de Programação</h1>
+    <p>Linguagem Java</p>
+</header>
+
+<div class="container">
+
+    <div id="menu"></div>
+
+    <main class="conteudo">
+
+        <h1>MVC Completo com Scanner</h1>
+
+        <p>
+            Agora vamos integrar todos os conceitos aprendidos em uma única estrutura:
+            <strong>Model, View, Controller e DAO</strong>.
+        </p>
+
+        <hr>
+
+        <h2>O que é MVC?</h2>
+
+        <p>
+            MVC é um padrão de arquitetura que separa o sistema em três partes:
+        </p>
+
+        <ul>
+            <li><strong>Model</strong> → dados</li>
+            <li><strong>View</strong> → interface</li>
+            <li><strong>Controller</strong> → controle</li>
+        </ul>
+
+        <hr>
+
+        <h2>Fluxo da aplicação</h2>
+
+        <pre><code>
+Main → View → Controller → DAO → Dados
+</code></pre>
+
+        <p>
+            Cada camada possui uma responsabilidade específica.
+        </p>
+
+        <hr>
+
+        <h2>View (Interface)</h2>
+
+        <p>
+            Responsável por mostrar o menu e coletar dados do usuário.
+        </p>
+
+        <pre><code>
+import java.util.Scanner;
+
+public class PessoaView {
+
+    private Scanner sc = new Scanner(System.in);
+
+    public int mostrarMenu(){
+        System.out.println("1 - Adicionar");
+        System.out.println("2 - Listar");
+        System.out.println("0 - Sair");
+        return sc.nextInt();
+    }
+
+    public String lerNome(){
+        System.out.print("Nome: ");
+        return sc.next();
+    }
+
+    public int lerIdade(){
+        System.out.print("Idade: ");
+        return sc.nextInt();
+    }
+}
+</code></pre>
+
+        <hr>
+
+        <h2>Controller</h2>
+
+        <p>
+            Recebe os dados da View e chama o DAO.
+        </p>
+
+        <pre><code>
+public class PessoaController {
+
+    private PessoaDAO dao = new PessoaDAO();
+
+    public void adicionar(String nome, int idade){
+        dao.adicionar(new Pessoa(nome, idade));
+    }
+
+    public void listar(){
+        for(Pessoa p : dao.listar()){
+            System.out.println(p.getNome() + " - " + p.getIdade());
+        }
+    }
+}
+</code></pre>
+
+        <hr>
+
+        <h2>Main (Integração)</h2>
+
+        <p>
+            O Main conecta todas as partes do sistema.
+        </p>
+
+        <pre><code>
+public class Main {
+
+    public static void main(String[] args){
+
+        PessoaController controller = new PessoaController();
+        PessoaView view = new PessoaView();
+
+        int opcao;
+
+        do {
+            opcao = view.mostrarMenu();
+
+            switch(opcao){
+
+                case 1:
+                    String nome = view.lerNome();
+                    int idade = view.lerIdade();
+                    controller.adicionar(nome, idade);
+                    break;
+
+                case 2:
+                    controller.listar();
+                    break;
+            }
+
+        } while(opcao != 0);
+    }
+}
+</code></pre>
+
+        <hr>
+
+        <h2>Entendendo o fluxo</h2>
+
+        <ul>
+            <li>Usuário interage com a View</li>
+            <li>View envia dados para o Controller</li>
+            <li>Controller chama o DAO</li>
+            <li>DAO manipula os dados</li>
+        </ul>
+
+        <hr>
+
+        <h2>Resumo</h2>
+
+        <ul>
+            <li>MVC organiza o sistema</li>
+            <li>Separa responsabilidades</li>
+            <li>Facilita manutenção e evolução</li>
+        </ul>
+
+    </main>
+
+</div>
+
+<div id="footer"></div>
+
+<script src="../js/footer.js"></script>
+<script src="../js/menu.js"></script>
+
+</body>
+</html>

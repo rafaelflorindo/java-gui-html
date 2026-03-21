@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Controller com DAO (ArrayList)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Ambiente de Ensino de Programação</h1>
+        <p>Linguagem Java</p>
+    </header>
+
+    <div class="container">
+
+        <div id="menu"></div>
+
+        <main class="conteudo">
+
+            <h1>Controller com DAO (ArrayList)</h1>
+
+            <p>
+                Nesta etapa, vamos organizar melhor nossa aplicação utilizando o padrão
+                <strong>Controller + DAO</strong>.
+            </p>
+
+            <p>
+                O objetivo é separar responsabilidades, deixando o código mais organizado,
+                reutilizável e fácil de manter.
+            </p>
+
+            <hr>
+
+            <h2>Fluxo da aplicação</h2>
+
+            <pre><code>
+Main → Controller → DAO → Dados (ArrayList)
+</code></pre>
+
+            <p>
+                Cada parte possui uma responsabilidade:
+            </p>
+
+            <ul>
+                <li><strong>Main</strong> → inicia o sistema</li>
+                <li><strong>Controller</strong> → controla as ações</li>
+                <li><strong>DAO</strong> → acessa os dados</li>
+                <li><strong>ArrayList</strong> → simula um banco</li>
+            </ul>
+
+            <hr>
+
+            <h2>Classe Model</h2>
+
+            <p>
+                Representa os dados da aplicação.
+            </p>
+
+            <pre><code>
+public class Pessoa {
+
+    private String nome;
+    private int idade;
+
+    public Pessoa(String nome, int idade){
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+}
+</code></pre>
+
+            <p>
+                A classe <strong>Pessoa</strong> armazena apenas os dados, sem regras de negócio.
+            </p>
+
+            <hr>
+
+            <h2>Classe DAO</h2>
+
+            <p>
+                O DAO é responsável por manipular os dados.
+            </p>
+
+            <pre><code>
+import java.util.ArrayList;
+
+public class PessoaDAO {
+
+    private ArrayList&lt;Pessoa&gt; lista = new ArrayList&lt;&gt;();
+
+    public void adicionar(Pessoa p){
+        lista.add(p);
+    }
+
+    public ArrayList&lt;Pessoa&gt; listar(){
+        return lista;
+    }
+
+    public void remover(int index){
+        lista.remove(index);
+    }
+}
+</code></pre>
+
+            <p>
+                Aqui utilizamos um <strong>ArrayList</strong> para simular um banco de dados.
+            </p>
+
+            <p>
+                O DAO não sabe nada sobre o usuário ou regras, apenas manipula os dados.
+            </p>
+
+            <hr>
+
+            <h2>Classe Controller</h2>
+
+            <p>
+                O Controller é responsável por controlar o fluxo da aplicação.
+            </p>
+
+            <pre><code>
+public class PessoaController {
+
+    private PessoaDAO dao = new PessoaDAO();
+
+    public void adicionar(String nome, int idade){
+        Pessoa p = new Pessoa(nome, idade);
+        dao.adicionar(p);
+    }
+
+    public void listar(){
+        for(Pessoa p : dao.listar()){
+            System.out.println(p.getNome() + " - " + p.getIdade());
+        }
+    }
+
+    public void remover(int index){
+        dao.remover(index);
+    }
+}
+</code></pre>
+
+            <p>
+                O Controller cria objetos, aplica regras e utiliza o DAO.
+            </p>
+
+            <p>
+                Ele funciona como uma ponte entre o sistema e os dados.
+            </p>
+
+            <hr>
+
+            <h2>Classe Principal</h2>
+
+            <p>
+                A classe principal apenas inicia o sistema e chama o Controller.
+            </p>
+
+            <pre><code>
+public class Main {
+
+    public static void main(String[] args){
+
+        PessoaController controller = new PessoaController();
+
+        controller.adicionar("Carlos", 25);
+        controller.adicionar("Ana", 30);
+
+        controller.listar();
+
+        controller.remover(0);
+
+        System.out.println("Após remoção:");
+        controller.listar();
+    }
+}
+</code></pre>
+
+            <p>
+                Observe que o <strong>Main não acessa o DAO diretamente</strong>.
+            </p>
+
+            <p>
+                Isso mantém o sistema organizado e facilita manutenção.
+            </p>
+
+            <hr>
+
+            <h2>Resumo</h2>
+
+            <ul>
+                <li>Model → representa os dados</li>
+                <li>DAO → acessa os dados</li>
+                <li>Controller → controla a aplicação</li>
+                <li>Main → inicia o sistema</li>
+            </ul>
+
+        </main>
+
+    </div>
+
+    <div id="footer"></div>
+
+    <script src="../js/footer.js"></script>
+    <script src="../js/menu.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Controller com DAO (MySQL)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Ambiente de Ensino de Programação</h1>
+        <p>Linguagem Java</p>
+    </header>
+
+    <div class="container">
+
+        <div id="menu"></div>
+
+        <main class="conteudo">
+
+            <h1>Controller com DAO (MySQL)</h1>
+
+            <p>
+                Agora vamos evoluir nossa aplicação utilizando um banco de dados real (MySQL).
+            </p>
+
+            <p>
+                A principal ideia é perceber que <strong>o Controller continua praticamente o mesmo</strong>.
+                Apenas o DAO muda, pois agora os dados são armazenados no banco.
+            </p>
+
+            <hr>
+
+            <h2>Fluxo da aplicação</h2>
+
+            <pre><code>
+Main → Controller → DAO → Banco de Dados
+</code></pre>
+
+            <p>
+                O fluxo permanece o mesmo, mudando apenas a fonte de dados.
+            </p>
+
+            <hr>
+
+            <h2>Classe de Conexão</h2>
+
+            <p>
+                Responsável por realizar a conexão com o banco de dados.
+            </p>
+
+            <pre><code>
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class Conexao {
+
+    public static Connection conectar() throws Exception {
+        String url = "jdbc:mysql://localhost:3306/teste";
+        String user = "root";
+        String password = "";
+
+        return DriverManager.getConnection(url, user, password);
+    }
+}
+</code></pre>
+
+            <p>
+                Essa classe centraliza a conexão, facilitando reutilização.
+            </p>
+
+            <hr>
+
+            <h2>Classe DAO (com banco)</h2>
+
+            <p>
+                Agora o DAO utiliza comandos SQL para acessar os dados.
+            </p>
+
+            <pre><code>
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class PessoaDAO {
+
+    // CREATE
+    public void inserir(Pessoa p) throws Exception {
+
+        Connection conn = Conexao.conectar();
+
+        String sql = "INSERT INTO pessoa (nome, idade) VALUES (?, ?)";
+
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, p.getNome());
+        stmt.setInt(2, p.getIdade());
+
+        stmt.execute();
+        conn.close();
+    }
+
+    // READ (listar)
+    public void listar() throws Exception {
+
+        Connection conn = Conexao.conectar();
+
+        String sql = "SELECT * FROM pessoa";
+
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        ResultSet rs = stmt.executeQuery();
+
+        while(rs.next()){
+            System.out.println(rs.getInt("id") + " - " +
+                               rs.getString("nome") + " - " +
+                               rs.getInt("idade"));
+        }
+
+        conn.close();
+    }
+
+    // READ (buscar um)
+    public Pessoa buscarUm(int id) throws Exception {
+
+        Connection conn = Conexao.conectar();
+
+        String sql = "SELECT * FROM pessoa WHERE id = ?";
+
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, id);
+
+        ResultSet rs = stmt.executeQuery();
+
+        Pessoa pessoa = null;
+
+        if(rs.next()){
+            pessoa = new Pessoa(
+                rs.getString("nome"),
+                rs.getInt("idade")
+            );
+        }
+
+        conn.close();
+
+        return pessoa;
+    }
+
+    // UPDATE
+    public void atualizar(int id, Pessoa p) throws Exception {
+
+        Connection conn = Conexao.conectar();
+
+        String sql = "UPDATE pessoa SET nome = ?, idade = ? WHERE id = ?";
+
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, p.getNome());
+        stmt.setInt(2, p.getIdade());
+        stmt.setInt(3, id);
+
+        stmt.execute();
+
+        conn.close();
+    }
+
+    // DELETE
+    public void excluir(int id) throws Exception {
+
+        Connection conn = Conexao.conectar();
+
+        String sql = "DELETE FROM pessoa WHERE id = ?";
+
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, id);
+
+        stmt.execute();
+
+        conn.close();
+    }
+}
+</code></pre>
+
+            <p>
+                O DAO agora depende de SQL e conexão com banco de dados.
+            </p>
+
+            <hr>
+
+            <h2>Classe Controller</h2>
+
+            <p>
+                O Controller continua com a mesma responsabilidade:
+                controlar o fluxo da aplicação.
+            </p>
+
+            <pre><code>
+public class PessoaController {
+
+    private PessoaDAO dao = new PessoaDAO();
+
+    public void adicionar(String nome, int idade) throws Exception {
+        Pessoa p = new Pessoa(nome, idade);
+        dao.inserir(p);
+    }
+
+    public void listar() throws Exception {
+        dao.listar();
+    }
+
+    public Pessoa buscar(int id) throws Exception {
+        return dao.buscarUm(id);
+    }
+
+    public void atualizar(int id, String nome, int idade) throws Exception {
+        Pessoa p = new Pessoa(nome, idade);
+        dao.atualizar(id, p);
+    }
+
+    public void excluir(int id) throws Exception {
+        dao.excluir(id);
+    }
+}
+</code></pre>
+
+            <p>
+                Observe que a lógica é praticamente a mesma da versão com ArrayList.
+            </p>
+
+            <p>
+                Isso mostra a vantagem da separação de responsabilidades.
+            </p>
+
+            <hr>
+
+            <h2>Classe Principal</h2>
+
+            <p>
+                A classe principal continua interagindo apenas com o Controller.
+            </p>
+
+            <pre><code>
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+
+        PessoaController controller = new PessoaController();
+
+        controller.adicionar("Carlos", 25);
+        controller.adicionar("Ana", 30);
+
+        controller.listar();
+
+        Pessoa p = controller.buscar(1);
+        System.out.println("Buscado: " + p.getNome());
+
+        controller.atualizar(1, "Carlos Silva", 26);
+
+        controller.excluir(2);
+
+        System.out.println("Após alterações:");
+        controller.listar();
+    }
+}
+</code></pre>
+
+            <p>
+                O Main não precisa saber se os dados estão em um ArrayList ou no banco.
+            </p>
+
+            <hr>
+
+            <h2>Resumo</h2>
+
+            <ul>
+                <li>Controller não depende da fonte de dados</li>
+                <li>DAO pode ser alterado sem impactar o sistema</li>
+                <li>MySQL permite persistência real</li>
+                <li>Separação de responsabilidades facilita manutenção</li>
+            </ul>
+
+        </main>
+
+    </div>
+
+    <div id="footer"></div>
+
+    <script src="../js/footer.js"></script>
+    <script src="../js/menu.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>DAO com MySQL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Ambiente de Ensino de Programação</h1>
+        <p>Linguagem Java</p>
+    </header>
+
+    <div class="container">
+
+        <div id="menu"></div>
+
+        <main class="conteudo">
+
+            <h1>DAO com MySQL</h1>
+
+            <p>
+                Neste exemplo utilizamos o padrão DAO (Data Access Object) com um banco de dados MySQL,
+                permitindo a persistência real dos dados.
+            </p>
+
+            <hr>
+
+            <h2>Dependência (Driver JDBC)</h2>
+
+            <pre><code>
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.33</version>
+</dependency>
+</code></pre>
+
+            <hr>
+
+            <h2>Classe de Conexão</h2>
+
+            <pre><code>
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class Conexao {
+
+    public static Connection conectar() throws Exception {
+        String url = "jdbc:mysql://localhost:3306/teste";
+        String user = "root";
+        String password = "";
+
+        return DriverManager.getConnection(url, user, password);
+    }
+}
+</code></pre>
+
+            <hr>
+
+            <h2>Classe DAO (CRUD Completo)</h2>
+
+            <pre><code>
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class PessoaDAO {
+
+    // CREATE
+    public void inserir(Pessoa p) throws Exception {
+
+        Connection conn = Conexao.conectar();
+
+        String sql = "INSERT INTO pessoa (nome, idade) VALUES (?, ?)";
+
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, p.getNome());
+        stmt.setInt(2, p.getIdade());
+
+        stmt.execute();
+        conn.close();
+    }
+
+    // READ (listar todos)
+    public void listar() throws Exception {
+
+        Connection conn = Conexao.conectar();
+
+        String sql = "SELECT * FROM pessoa";
+
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        ResultSet rs = stmt.executeQuery();
+
+        while(rs.next()){
+            System.out.println(rs.getInt("id") + " - " +
+                               rs.getString("nome") + " - " +
+                               rs.getInt("idade"));
+        }
+
+        conn.close();
+    }
+
+    // READ (buscar um)
+    public Pessoa buscarUm(int id) throws Exception {
+
+        Connection conn = Conexao.conectar();
+
+        String sql = "SELECT * FROM pessoa WHERE id = ?";
+
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, id);
+
+        ResultSet rs = stmt.executeQuery();
+
+        Pessoa pessoa = null;
+
+        if(rs.next()){
+            pessoa = new Pessoa(
+                rs.getString("nome"),
+                rs.getInt("idade")
+            );
+        }
+
+        conn.close();
+
+        return pessoa;
+    }
+
+    // UPDATE
+    public void atualizar(int id, Pessoa p) throws Exception {
+
+        Connection conn = Conexao.conectar();
+
+        String sql = "UPDATE pessoa SET nome = ?, idade = ? WHERE id = ?";
+
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, p.getNome());
+        stmt.setInt(2, p.getIdade());
+        stmt.setInt(3, id);
+
+        stmt.execute();
+
+        conn.close();
+    }
+
+    // DELETE
+    public void excluir(int id) throws Exception {
+
+        Connection conn = Conexao.conectar();
+
+        String sql = "DELETE FROM pessoa WHERE id = ?";
+
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, id);
+
+        stmt.execute();
+
+        conn.close();
+    }
+}
+</code></pre>
+
+            <hr>
+
+            <h2>Estrutura da Tabela</h2>
+
+            <pre><code>
+CREATE TABLE pessoa (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100),
+    idade INT
+);
+</code></pre>
+
+            <hr>
+
+            <h2>Explicação</h2>
+
+            <ul>
+                <li><strong>Connection</strong> → responsável pela conexão com o banco</li>
+                <li><strong>PreparedStatement</strong> → executa comandos SQL com segurança</li>
+                <li><strong>ResultSet</strong> → armazena o resultado das consultas</li>
+                <li><strong>id</strong> → identifica cada registro (chave primária)</li>
+            </ul>
+
+            <hr>
+
+            <h2>Resumo</h2>
+
+            <ul>
+                <li>DAO separa a lógica de acesso aos dados</li>
+                <li>MySQL permite persistência real</li>
+                <li>CRUD completo: inserir, listar, buscar, atualizar e excluir</li>
+            </ul>
+
+        </main>
+
+    </div>
+
+    <div id="footer"></div>
+
+    <script src="../js/footer.js"></script>
+    <script src="../js/menu.js"></script>
+
+</body>
+
+</html>

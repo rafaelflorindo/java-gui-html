@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Sistema Completo (MVC + DAO + MySQL)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Ambiente de Ensino de Programação</h1>
+    <p>Linguagem Java</p>
+</header>
+
+<div class="container">
+
+    <div id="menu"></div>
+
+    <main class="conteudo">
+
+        <h1>Sistema Completo (MVC + DAO + MySQL)</h1>
+
+        <p>
+            Nesta etapa vamos construir um sistema completo utilizando
+            <strong>Model, View, Controller, DAO e Banco de Dados</strong>.
+        </p>
+
+        <p>
+            Agora não estamos mais trabalhando com exemplos isolados,
+            mas com uma estrutura semelhante à utilizada no mercado.
+        </p>
+
+        <hr>
+
+        <h2>Organização em Pacotes</h2>
+
+        <p>
+            Antes de iniciar, organize seu projeto criando os seguintes pacotes:
+        </p>
+
+        <pre><code>
+model
+view
+controller
+dao
+</code></pre>
+
+        <p>
+            Essa separação facilita a organização e manutenção do sistema.
+        </p>
+
+        <hr>
+
+        <h2>Fluxo da aplicação</h2>
+
+        <pre><code>
+Main → View → Controller → DAO → Banco de Dados
+</code></pre>
+
+        <p>
+            Cada camada possui uma responsabilidade específica.
+        </p>
+
+        <ul>
+            <li><strong>View</strong> → interação com o usuário</li>
+            <li><strong>Controller</strong> → controla o fluxo</li>
+            <li><strong>DAO</strong> → acessa os dados</li>
+            <li><strong>Banco</strong> → armazena os dados</li>
+        </ul>
+
+        <hr>
+
+        <h2>Model (Pessoa)</h2>
+
+        <pre><code>
+package model;
+
+public class Pessoa {
+
+    private String nome;
+    private int idade;
+
+    public Pessoa(String nome, int idade){
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+}
+</code></pre>
+
+        <hr>
+
+        <h2>Conexão com o Banco</h2>
+
+        <pre><code>
+package dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class Conexao {
+
+    public static Connection conectar() throws Exception {
+        String url = "jdbc:mysql://localhost:3306/teste";
+        String user = "root";
+        String password = "";
+
+        return DriverManager.getConnection(url, user, password);
+    }
+}
+</code></pre>
+
+        <hr>
+
+        <h2>DAO (MySQL)</h2>
+
+        <p>
+            O DAO é responsável por executar comandos SQL no banco de dados.
+        </p>
+
+        <pre><code>
+package dao;
+
+import model.Pessoa;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class PessoaDAO {
+
+    public void inserir(Pessoa p) throws Exception {
+
+        Connection conn = Conexao.conectar();
+
+        String sql = "INSERT INTO pessoa (nome, idade) VALUES (?, ?)";
+
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, p.getNome());
+        stmt.setInt(2, p.getIdade());
+
+        stmt.execute();
+        conn.close();
+    }
+
+    public void listar() throws Exception {
+
+        Connection conn = Conexao.conectar();
+
+        String sql = "SELECT * FROM pessoa";
+
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        ResultSet rs = stmt.executeQuery();
+
+        while(rs.next()){
+            System.out.println(rs.getInt("id") + " - " +
+                               rs.getString("nome") + " - " +
+                               rs.getInt("idade"));
+        }
+
+        conn.close();
+    }
+
+    public Pessoa buscarUm(int id) throws Exception {
+
+        Connection conn = Conexao.conectar();
+
+        String sql = "SELECT * FROM pessoa WHERE id = ?";
+
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, id);
+
+        ResultSet rs = stmt.executeQuery();
+
+        Pessoa p = null;
+
+        if(rs.next()){
+            p = new Pessoa(
+                rs.getString("nome"),
+                rs.getInt("idade")
+            );
+        }
+
+        conn.close();
+        return p;
+    }
+
+    public void atualizar(int id, Pessoa p) throws Exception {
+
+        Connection conn = Conexao.conectar();
+
+        String sql = "UPDATE pessoa SET nome = ?, idade = ? WHERE id = ?";
+
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, p.getNome());
+        stmt.setInt(2, p.getIdade());
+        stmt.setInt(3, id);
+
+        stmt.execute();
+        conn.close();
+    }
+
+    public void excluir(int id) throws Exception {
+
+        Connection conn = Conexao.conectar();
+
+        String sql = "DELETE FROM pessoa WHERE id = ?";
+
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, id);
+
+        stmt.execute();
+        conn.close();
+    }
+}
+</code></pre>
+
+        <hr>
+
+        <h2>Controller</h2>
+
+        <p>
+            O Controller recebe dados da View e chama o DAO.
+        </p>
+
+        <pre><code>
+package controller;
+
+import dao.PessoaDAO;
+import model.Pessoa;
+
+public class PessoaController {
+
+    private PessoaDAO dao = new PessoaDAO();
+
+    public void adicionar(String nome, int idade) throws Exception {
+        dao.inserir(new Pessoa(nome, idade));
+    }
+
+    public void listar() throws Exception {
+        dao.listar();
+    }
+
+    public Pessoa buscar(int id) throws Exception {
+        return dao.buscarUm(id);
+    }
+
+    public void atualizar(int id, String nome, int idade) throws Exception {
+        dao.atualizar(id, new Pessoa(nome, idade));
+    }
+
+    public void excluir(int id) throws Exception {
+        dao.excluir(id);
+    }
+}
+</code></pre>
+
+        <hr>
+
+        <h2>View</h2>
+
+        <p>
+            Responsável pela interação com o usuário.
+        </p>
+
+        <pre><code>
+package view;
+
+import java.util.Scanner;
+
+public class PessoaView {
+
+    private Scanner sc = new Scanner(System.in);
+
+    public int menu(){
+        System.out.println("1 - Adicionar");
+        System.out.println("2 - Listar");
+        System.out.println("3 - Buscar");
+        System.out.println("4 - Atualizar");
+        System.out.println("5 - Excluir");
+        System.out.println("0 - Sair");
+        return sc.nextInt();
+    }
+
+    public String lerNome(){
+        System.out.print("Nome: ");
+        return sc.next();
+    }
+
+    public int lerIdade(){
+        System.out.print("Idade: ");
+        return sc.nextInt();
+    }
+
+    public int lerId(){
+        System.out.print("ID: ");
+        return sc.nextInt();
+    }
+
+    public void msg(String texto){
+        System.out.println(texto);
+    }
+}
+</code></pre>
+
+        <hr>
+
+        <h2>Main</h2>
+
+        <p>
+            Integra todas as partes do sistema.
+        </p>
+
+        <pre><code>
+import controller.PessoaController;
+import view.PessoaView;
+import model.Pessoa;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+
+        PessoaController controller = new PessoaController();
+        PessoaView view = new PessoaView();
+
+        int op;
+
+        do {
+            op = view.menu();
+
+            switch(op){
+
+                case 1:
+                    controller.adicionar(view.lerNome(), view.lerIdade());
+                    view.msg("Salvo!");
+                    break;
+
+                case 2:
+                    controller.listar();
+                    break;
+
+                case 3:
+                    Pessoa p = controller.buscar(view.lerId());
+                    if(p != null){
+                        view.msg(p.getNome());
+                    } else {
+                        view.msg("Não encontrado");
+                    }
+                    break;
+
+                case 4:
+                    int id = view.lerId();
+                    controller.atualizar(id, view.lerNome(), view.lerIdade());
+                    view.msg("Atualizado!");
+                    break;
+
+                case 5:
+                    controller.excluir(view.lerId());
+                    view.msg("Excluído!");
+                    break;
+            }
+
+        } while(op != 0);
+    }
+}
+</code></pre>
+
+        <hr>
+
+        <h2>Resumo</h2>
+
+        <ul>
+            <li>Agora temos um sistema completo</li>
+            <li>Separação em camadas organizada</li>
+            <li>Uso de banco de dados real</li>
+            <li>Base pronta para interface gráfica (Swing)</li>
+        </ul>
+
+    </main>
+
+</div>
+
+<div id="footer"></div>
+
+<script src="../js/footer.js"></script>
+<script src="../js/menu.js"></script>
+
+</body>
+</html>

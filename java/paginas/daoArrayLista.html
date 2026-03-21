@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DAO com ArrayList</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Ambiente de Ensino de Programação</h1>
+        <p>Linguagem Java</p>
+    </header>
+
+    <div class="container">
+        <div id="menu"></div>
+
+        <main class="conteudo">
+
+            <h1>DAO com ArrayList</h1>
+
+            <p>
+                O padrão DAO (Data Access Object) é utilizado para separar a lógica
+                de acesso aos dados da lógica da aplicação.
+            </p>
+
+            <p>
+                Neste exemplo, utilizamos um <strong>ArrayList</strong> para simular
+                um banco de dados em memória.
+            </p>
+
+            <hr>
+
+            <h2>Classe Model</h2>
+
+            <pre><code>
+public class Pessoa {
+
+    private String nome;
+    private int idade;
+
+    // Construtor
+    public Pessoa(String nome, int idade){
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    // Getters
+    public String getNome() {
+        return nome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+}
+</code></pre>
+
+            <hr>
+
+            <h2>Classe DAO</h2>
+
+            <pre><code>
+import java.util.ArrayList;
+
+public class PessoaDAO {
+
+    private ArrayList<Pessoa> lista = new ArrayList<>();
+
+    // CREATE
+    public void adicionar(Pessoa p){
+        lista.add(p);
+    }
+
+    // READ
+    public ArrayList<Pessoa> listar(){
+        return lista;
+    }
+
+    // UPDATE
+    public void atualizar(int index, Pessoa p){
+        lista.set(index, p);
+    }
+
+    // DELETE
+    public void remover(int index){
+        lista.remove(index);
+    }
+}
+</code></pre>
+
+            <hr>
+
+            <h2>Classe Principal (Teste)</h2>
+
+            <pre><code>
+public class Main {
+
+    public static void main(String[] args){
+
+        PessoaDAO dao = new PessoaDAO();
+
+        dao.adicionar(new Pessoa("Carlos", 25));
+        dao.adicionar(new Pessoa("Ana", 30));
+
+        for(Pessoa p : dao.listar()){
+            System.out.println(p.getNome() + " - " + p.getIdade());
+        }
+
+    }
+}
+</code></pre>
+
+            <hr>
+
+            <h2>Explicação</h2>
+
+            <ul>
+                <li>ArrayList simula um banco de dados</li>
+                <li>DAO centraliza operações CRUD</li>
+                <li>Separação entre dados e lógica</li>
+            </ul>
+
+            <hr>
+
+            <h2>Resumo</h2>
+
+            <ul>
+                <li>DAO organiza o acesso aos dados</li>
+                <li>ArrayList permite testes rápidos</li>
+                <li>Não há persistência real</li>
+            </ul>
+
+            <hr>
+
+            <h2>Atividade</h2>
+
+            <p>
+                Crie um DAO para a classe <strong>Produto</strong> contendo:
+            </p>
+
+            <ul>
+                <li>Adicionar produto</li>
+                <li>Listar produtos</li>
+                <li>Remover produto</li>
+            </ul>
+
+        </main>
+    </div>
+
+    <div id="footer"></div>
+    <script src="../js/footer.js"></script>
+    <script src="../js/menu.js"></script>
+</body>
+
+</html>
